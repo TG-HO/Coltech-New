@@ -1,187 +1,410 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { Target, Lightbulb, Users, Shield, ArrowRight } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ShieldCheck,
+  Target,
+  Compass,
+  Zap,
+  Activity,
+  Server,
+  ArrowRight,
+  ChevronRight,
+  CheckCircle2,
+  Cpu,
+  Layers,
+  Fuel,
+  Users,
+  Award,
+  Globe,
+  Lock,
+} from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
-import Image from "next/image";
 
 export default function AboutPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: timelineRef,
-    offset: ["start center", "end center"],
-  });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 50,
-    damping: 20,
-    restDelta: 0.001
-  });
-
-  const pathLength = useTransform(smoothProgress, [0, 1], [0, 1]);
+  const stats = [
+    { value: "99.9%", label: "Uptime SLA", sub: "Enterprise Guarantee" },
+    { value: "50,000+", label: "Active Edge Data Points", sub: "Live Telemetry Monitored" },
+    { value: "Zero-Downtime", label: "Migration SLA", sub: "Seamless Forecourt Transitions" },
+    { value: "24/7/365", label: "Enterprise Support", sub: "Dedicated Field & Tier-1 NOC" },
+  ];
 
   return (
-    <div className="w-full min-h-screen bg-brand-light">
-      
-      {/* Hero Section */}
-      <section className="w-full bg-brand-navy pt-36 pb-24 text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
-          <Image
-            src="/capsule-bg.png"
-            alt="Enterprise infrastructure background"
-            fill
-            className="object-cover mix-blend-overlay"
-            priority
-          />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+    <div className="w-full min-h-screen bg-[#f7f9fb] text-[#001a39] flex flex-col selection:bg-[#1CB08F] selection:text-white">
+      {/* ------------------------------------------------------------------------ */}
+      {/* 1. PAGE HEADER */}
+      {/* ------------------------------------------------------------------------ */}
+      <section className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 px-6 md:px-12 max-w-7xl mx-auto overflow-hidden">
+        {/* Subtle Background Glow */}
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 w-[750px] h-[320px] bg-gradient-to-r from-[#1CB08F]/10 via-[#152F52]/5 to-[#1CB08F]/10 blur-3xl pointer-events-none rounded-full" />
+
+        <div className="relative z-10 flex flex-col items-start max-w-4xl">
+          {/* Breadcrumb Navigation */}
+          <motion.nav
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.3 }}
+            aria-label="Breadcrumb"
+            className="flex items-center gap-2 text-xs font-semibold text-[#44474e] mb-6"
           >
-            <span className="text-brand-turquoise font-semibold tracking-[0.25em] text-xs md:text-sm uppercase mb-4 block">
-              The Circle of Life (COLTECH)
+            <Link href="/" className="hover:text-[#1CB08F] transition-colors">
+              Home
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-[#1CB08F]" />
+            <span className="text-[#001a39] font-bold">About Us</span>
+          </motion.nav>
+
+          {/* Tagline Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2.5 bg-white px-4 py-1.5 rounded-full border border-[#F1F5F9] shadow-xs mb-6"
+          >
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
+            <span className="text-[12px] font-bold tracking-[0.2em] text-[#44474e] uppercase">
+              ESTABLISHED 2024
             </span>
-            <h1 className="text-white text-5xl md:text-7xl font-bold tracking-tight leading-tight mb-8">
-              Engineering the <br /> <span className="text-brand-turquoise">future of enterprise.</span>
-            </h1>
-            <div className="w-20 h-1 bg-brand-turquoise mb-8"></div>
-            <p className="text-white/90 text-lg md:text-xl leading-relaxed border-l-2 border-brand-turquoise pl-6">
-              COLTECH was founded on a singular vision: to bring high-availability IT infrastructure, seamless pump automation, and custom software directly into the operations of industry giants.
-            </p>
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#001a39] leading-[1.12] mb-6"
+          >
+            Engineering the Future of{" "}
+            <span className="text-[#1CB08F] relative inline-block">
+              Industrial Automation
+              <svg
+                className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 10"
+              >
+                <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="4" />
+              </svg>
+            </span>
+          </motion.h1>
+
+          {/* Subheader */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-3xl mb-8"
+          >
+            Circle of Life (COL) delivers scalable IT infrastructure, intelligent software, and edge data solutions built for demanding enterprise environments.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------------ */}
+      {/* 2. MISSION & VISION BENTO-GRID */}
+      {/* ------------------------------------------------------------------------ */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Our Mission */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bento-card bg-white p-8 rounded-2xl border border-[#F1F5F9] shadow-xl flex flex-col justify-between group relative overflow-hidden"
+          >
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-[#1CB08F]/10 rounded-full blur-2xl group-hover:bg-[#1CB08F]/20 transition-all duration-500 pointer-events-none" />
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-[#1CB08F]/10 text-[#1CB08F] flex items-center justify-center">
+                <Target className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F] block">
+                PURPOSE
+              </span>
+              <h3 className="text-2xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
+                Our Mission
+              </h3>
+              <p className="text-sm sm:text-base text-[#44474e] leading-relaxed">
+                Bridging physical infrastructure with intelligent digital automation. We eliminate the friction between mechanical hardware and high-level enterprise software.
+              </p>
+            </div>
+            <div className="mt-8 pt-4 border-t border-[#F1F5F9] flex items-center gap-2 text-xs font-semibold text-[#001a39]">
+              <CheckCircle2 className="w-4 h-4 text-[#1CB08F]" />
+              <span>Zero-Loss Telemetry Protocols</span>
+            </div>
+          </motion.div>
+
+          {/* Card 2: Our Vision */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="bento-card bg-white p-8 rounded-2xl border border-[#F1F5F9] shadow-xl flex flex-col justify-between group relative overflow-hidden"
+          >
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-[#152F52]/10 rounded-full blur-2xl group-hover:bg-[#1CB08F]/15 transition-all duration-500 pointer-events-none" />
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-[#001a39] text-white flex items-center justify-center">
+                <Compass className="w-6 h-6 text-[#1CB08F]" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F] block">
+                HORIZON
+              </span>
+              <h3 className="text-2xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
+                Our Vision
+              </h3>
+              <p className="text-sm sm:text-base text-[#44474e] leading-relaxed">
+                Setting the standard for industrial IoT and end-to-end IT reliability across emerging markets, creating unified digital nervous systems for modern enterprises.
+              </p>
+            </div>
+            <div className="mt-8 pt-4 border-t border-[#F1F5F9] flex items-center gap-2 text-xs font-semibold text-[#001a39]">
+              <Globe className="w-4 h-4 text-[#1CB08F]" />
+              <span>National & Regional Scale</span>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Core Values */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bento-card bg-white p-8 rounded-2xl border border-[#F1F5F9] shadow-xl flex flex-col justify-between group relative overflow-hidden"
+          >
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-[#1CB08F]/10 rounded-full blur-2xl group-hover:bg-[#1CB08F]/20 transition-all duration-500 pointer-events-none" />
+            <div className="space-y-4 relative z-10">
+              <div className="w-12 h-12 rounded-xl bg-[#1CB08F]/10 text-[#1CB08F] flex items-center justify-center">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F] block">
+                FOUNDATIONS
+              </span>
+              <h3 className="text-2xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
+                Core Values
+              </h3>
+              <div className="space-y-2 pt-1 text-sm text-[#44474e]">
+                <div className="flex items-center gap-2 font-semibold text-[#001a39]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1CB08F]" />
+                  <span>Engineering Precision</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold text-[#001a39]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1CB08F]" />
+                  <span>99.99% Reliability Guarantee</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold text-[#001a39]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1CB08F]" />
+                  <span>Scalable, Modular Architectures</span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 pt-4 border-t border-[#F1F5F9] flex items-center gap-2 text-xs font-semibold text-[#001a39]">
+              <Lock className="w-4 h-4 text-[#1CB08F]" />
+              <span>Zero Black-Box Dependencies</span>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Core Values Matrix */}
-      <section className="py-28 bg-white border-b border-brand-navy/10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <span className="text-brand-turquoise font-semibold tracking-[0.2em] text-xs uppercase block mb-2">
-              Foundational Principles
+      {/* ------------------------------------------------------------------------ */}
+      {/* 3. IMPACT & ENTERPRISE SCALE METRICS */}
+      {/* ------------------------------------------------------------------------ */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">
+        <div className="bg-[#001a39] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#1CB08F]/15 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2 relative z-10">
+            <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#1CB08F] uppercase">
+              OPERATIONAL BENCHMARKS
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-navy tracking-tight mb-4">Core Values</h2>
-            <p className="text-brand-navy/70 text-base md:text-lg max-w-2xl">The architectural and ethical pillars that dictate our engineering choices and client partnerships.</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+              Enterprise Scale By The Numbers
+            </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Precision", desc: "Absolute accuracy in every line of production code and server rack configuration.", icon: Target },
-              { title: "Innovation", desc: "Pioneering new standards in IoT telemetry and automated ERP integrations.", icon: Lightbulb },
-              { title: "Integrity", desc: "Transparent, secure engineering with zero black-box dependencies.", icon: Shield },
-              { title: "Partnership", desc: "We operate as an agile, dedicated extension of your internal teams.", icon: Users },
-            ].map((value, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            {stats.map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="bg-brand-light p-8 flex flex-col items-start border border-brand-navy/10 hover:border-brand-turquoise hover:shadow-xl transition-all duration-300 rounded-none group"
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center group hover:border-[#1CB08F]/40 transition-colors"
               >
-                <div className="p-3.5 bg-white rounded-sm mb-6 border border-brand-navy/10 group-hover:border-brand-turquoise transition-colors">
-                  <value.icon className="w-6 h-6 text-brand-turquoise" />
-                </div>
-                <h3 className="text-xl font-bold text-brand-navy mb-3 group-hover:text-brand-turquoise transition-colors">{value.title}</h3>
-                <p className="text-brand-navy/75 text-sm leading-relaxed">{value.desc}</p>
+                <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#1CB08F] tracking-tight mb-2 group-hover:scale-105 transition-transform">
+                  {item.value}
+                </span>
+                <span className="text-sm font-bold text-white mb-1">
+                  {item.label}
+                </span>
+                <span className="text-xs font-mono text-white/50">
+                  {item.sub}
+                </span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* History Timeline */}
-      <section className="py-32 bg-brand-light relative" ref={timelineRef}>
-        <div className="max-w-5xl mx-auto px-6 relative z-10">
-          <div className="mb-20 text-center">
-            <span className="text-brand-turquoise font-semibold tracking-[0.2em] text-xs uppercase block mb-2">
-              Evolution & Milestones
-            </span>
-            <h2 className="text-brand-navy text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Our Journey
-            </h2>
-            <div className="w-20 h-1 bg-brand-turquoise mx-auto"></div>
-          </div>
+      {/* ------------------------------------------------------------------------ */}
+      {/* 4. OPERATIONAL HERITAGE & CLIENTS */}
+      {/* ------------------------------------------------------------------------ */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Narrative Left */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 space-y-6"
+          >
+            <div className="space-y-2">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F]">
+                OUR HERITAGE & TRUST
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#001a39] tracking-tight">
+                Architecting Mission-Critical Systems for Industry Leaders
+              </h2>
+            </div>
+            <p className="text-base text-[#44474e] leading-relaxed">
+              Founded in 2024, Circle of Life Technologies (COLTECH) originated to address a critical industry vulnerability: the fragmentation between industrial forecourt machinery, server rooms, and software platforms.
+            </p>
+            <p className="text-base text-[#44474e] leading-relaxed">
+              Our anchor rollout with <strong>Taj Gasoline</strong> established nationwide retail fuel dispensing telemetry, zero-loss wetstock auditing, and automated real-time point-of-sale ledgers. Today, we continue to engineer resilient technologies that empower mission-critical operations.
+            </p>
+            <div className="p-4 rounded-xl bg-white border border-[#F1F5F9] shadow-xs flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#1CB08F]/10 text-[#1CB08F] flex items-center justify-center shrink-0">
+                <Award className="w-5 h-5 text-[#1CB08F]" />
+              </div>
+              <div className="text-xs text-[#44474e]">
+                <strong className="text-[#001a39] block text-sm">Taj Gasoline Strategic Anchor Partner</strong>
+                Nationwide deployment across 200+ forecourts and multi-tier server clusters.
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="relative">
-            {/* Background Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[2px] bg-brand-navy/10 -translate-x-1/2"></div>
-            
-            {/* Animated SVG Tracing Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 overflow-visible">
-              <svg
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[4px] h-full"
-                preserveAspectRatio="none"
-                viewBox="0 0 4 1000"
-              >
-                <motion.line
-                  x1="2" y1="0" x2="2" y2="1000"
-                  stroke="#1CB08F"
-                  strokeWidth="4"
-                  vectorEffect="non-scaling-stroke"
-                  style={{ pathLength }}
-                />
-              </svg>
+          {/* Interactive Server Rack & Control Room Dashboard Graphic */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-6 w-full"
+          >
+            <div className="bento-card bg-[#001a39] text-white p-7 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-[#1CB08F] animate-ping" />
+                  <div>
+                    <span className="text-xs font-mono font-bold text-white tracking-widest uppercase block">
+                      COLTECH NOC & COMMAND CENTER
+                    </span>
+                    <span className="text-[10px] text-white/50 font-mono">ACTIVE TELEMETRY CLUSTER</span>
+                  </div>
+                </div>
+                <span className="text-xs font-mono text-[#1CB08F] bg-[#1CB08F]/20 px-2.5 py-1 rounded-md border border-[#1CB08F]/30">
+                  ALL NODES HEALTHY
+                </span>
+              </div>
+
+              {/* Server Grid View */}
+              <div className="grid grid-cols-2 gap-4 mb-5">
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col justify-between">
+                  <div className="flex justify-between items-center text-xs font-mono text-white/60 mb-2">
+                    <span>SERVER RACK #01</span>
+                    <span className="text-[#1CB08F]">99.99%</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                      <div className="bg-[#1CB08F] h-full w-[24%]" />
+                    </div>
+                    <span className="text-[11px] font-mono text-white/70 block">Core Load: 24% (Optimal)</span>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col justify-between">
+                  <div className="flex justify-between items-center text-xs font-mono text-white/60 mb-2">
+                    <span>EDGE POS LEDGERS</span>
+                    <span className="text-emerald-400">SYNCED</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                      <div className="bg-[#1CB08F] h-full w-[100%]" />
+                    </div>
+                    <span className="text-[11px] font-mono text-white/70 block">0 Pending Reconciliations</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Real-Time Event Feed */}
+              <div className="bg-black/40 border border-white/10 rounded-xl p-4 font-mono text-xs text-white/80 space-y-2">
+                <div className="flex items-center justify-between text-[11px] text-white/40 pb-2 border-b border-white/10">
+                  <span>LIVE REPLICATION STREAM</span>
+                  <span className="text-[#1CB08F]">TLS 1.3</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px]">
+                  <span className="text-[#1CB08F]">&gt;</span>
+                  <span>[08:42:19] Taj Gasoline Node Alpha telemetry packet ACK received.</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px]">
+                  <span className="text-[#1CB08F]">&gt;</span>
+                  <span>[08:42:20] Automatic wetstock calibration verified within ±0.01% tolerance.</span>
+                </div>
+                <div className="flex items-center gap-2 text-[11px]">
+                  <span className="text-emerald-400">&gt;</span>
+                  <span>[08:42:22] Failover SD-WAN loop standby ping latency: 12ms.</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ------------------------------------------------------------------------ */}
+      {/* 5. GLOBAL CTA BANNER */}
+      {/* ------------------------------------------------------------------------ */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-8">
+        <div className="relative bg-[#001a39] text-white rounded-3xl p-8 sm:p-14 md:p-18 overflow-hidden shadow-2xl border border-white/10">
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#1CB08F]/25 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#152F52]/60 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="max-w-2xl space-y-4 text-center lg:text-left">
+              <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#1CB08F] block">
+                COLLABORATE & GROW
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+                Join Our Journey or Partner With Us.
+              </h2>
+              <p className="text-white/80 text-base sm:text-lg leading-relaxed">
+                Connect with our team to discover how our engineering principles can elevate your organization’s operational resilience.
+              </p>
             </div>
 
-            <div className="flex flex-col gap-20 relative z-20">
-              {[
-                { year: "2024", title: "Company Inception", desc: "COLTECH is established to bridge the gap between heavy physical infrastructure and modern enterprise software architectures." },
-                { year: "2024", title: "Taj Gasoline Strategic Partnership", desc: "Secured our anchor enterprise contract, automating end-to-end wetstock telemetry and multi-site retail POS." },
-                { year: "2025", title: "Infrastructure & Security Scaling", desc: "Scaling operations into AI-enabled CCTV monitoring and high-density server rack deployments." },
-                { year: "Future", title: "Global Technology Ecosystem", desc: "Continuing our mission to digitize, automate, and optimize critical enterprise operations globally." },
-              ].map((step, index) => {
-                const isEven = index % 2 === 0;
-                return (
-                  <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? "md:flex-row-reverse" : ""}`}>
-                    <div className="w-full md:w-1/2 flex items-center justify-start md:justify-center">
-                      <div className="w-20 h-20 bg-brand-navy border-2 border-brand-turquoise flex items-center justify-center z-30 shrink-0 absolute left-0 md:static shadow-lg">
-                        <span className="text-brand-turquoise font-bold text-sm tracking-wider">{step.year}</span>
-                      </div>
-                    </div>
-                    <div className={`w-full md:w-1/2 pl-24 md:pl-0 ${isEven ? "md:text-right md:pr-12" : "md:text-left md:pl-12"}`}>
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        className="bg-white p-8 border border-brand-navy/10 hover:border-brand-turquoise transition-all duration-300 rounded-none shadow-sm"
-                      >
-                        <h3 className="text-2xl font-bold text-brand-navy mb-2">{step.title}</h3>
-                        <p className="text-brand-navy/75 leading-relaxed text-sm md:text-base">{step.desc}</p>
-                      </motion.div>
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-4 w-full sm:w-auto shrink-0">
+              <button
+                onClick={() => setIsContactOpen(true)}
+                className="bg-[#1CB08F] text-white font-bold text-base px-10 py-5 rounded-full shadow-[0_4px_20px_rgba(28,176,143,0.4)] hover:bg-[#159376] hover:shadow-[0_6px_25px_rgba(28,176,143,0.5)] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer text-center"
+              >
+                Get in Touch
+                <ArrowRight className="w-5 h-5" />
+              </button>
+              <Link
+                href="/services"
+                className="bg-transparent border border-white/30 text-white hover:border-[#1CB08F] hover:text-[#1CB08F] font-bold text-sm px-8 py-4 rounded-full transition-all text-center"
+              >
+                Explore All Services
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA Block */}
-      <section className="py-24 bg-brand-navy text-center px-6">
-        <span className="text-brand-turquoise font-semibold tracking-[0.25em] text-xs uppercase block mb-3">
-          Get In Touch
-        </span>
-        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-8">
-          Ready to modernize your infrastructure?
-        </h2>
-        <motion.button
-          onClick={() => setIsContactOpen(true)}
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          className="bg-brand-turquoise text-white px-8 py-4 rounded font-bold text-base md:text-lg inline-flex items-center gap-3 hover:bg-white hover:text-brand-navy shadow-lg shadow-brand-turquoise/20 transition-all cursor-pointer"
-        >
-          Contact Our Engineers <ArrowRight className="w-5 h-5" />
-        </motion.button>
-      </section>
-
+      {/* Global Contact Modal */}
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>
   );

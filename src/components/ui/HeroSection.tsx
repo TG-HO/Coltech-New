@@ -1,131 +1,124 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+import { ArrowRight } from "lucide-react";
 import ContactModal from "./ContactModal";
+import { DecryptText } from "./decrypt-text";
+
+// Dynamic import of 3D Mini Robot to ensure smooth client-side WebGL rendering
+const MiniRobotCanvas = dynamic(
+  () => import("./robot-hero").then((mod) => mod.MiniRobotCanvas),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full min-h-[420px] flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full border-2 border-[#1CB08F] border-t-transparent animate-spin" />
+      </div>
+    ),
+  }
+);
 
 export default function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null);
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
 
-  // Parallax background (moves slower than scroll)
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  // Fade out content as user scrolls down
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring" as const,
-        stiffness: 100,
-        damping: 20,
-      },
-    },
-  };
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const scrollToSolutions = (e: React.MouseEvent) => {
     e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+    const el = document.getElementById("solutions");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <section ref={ref} className="relative w-full min-h-[90vh] flex items-center pt-20 overflow-hidden bg-brand-navy">
-      {/* Background Image with Parallax */}
-      <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0 h-[120%] -top-[10%]">
-        <Image
-          src="/hero-bg.png"
-          alt="Enterprise Server Infrastructure"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Deep Navy brand overlay mask */}
-        <div className="absolute inset-0 bg-[#152F52]/80 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-[#152F52]/55" />
-      </motion.div>
-
-      {/* Content Container */}
-      <motion.div
-        style={{ opacity }}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 py-28 flex flex-col items-start justify-center"
-      >
-        {/* Brand Kicker - High-contrast Turquoise Tagline Badge */}
-        <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full bg-[#152F52]/85 border border-[#1CB08F]/50 backdrop-blur-md shadow-lg shadow-[#1CB08F]/10"
-        >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
-          <span className="text-[#1CB08F] font-bold tracking-[0.25em] text-xs md:text-sm uppercase drop-shadow-sm">
-            BEYOND THE DIGITAL</span>
-        </motion.div>
-
-        {/* H1 Headline */}
-        <motion.h1 variants={itemVariants} className="text-white font-bold text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.1] max-w-4xl mb-8 drop-shadow-md">
-          Future-Ready Technology for <span className="text-[#1CB08F]">Scalable Growth.</span>
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.p variants={itemVariants} className="text-white/90 text-lg md:text-xl max-w-2xl font-normal leading-relaxed mb-12 border-l-2 border-[#1CB08F] pl-6">
-          Empowering modern enterprises through custom software, smart pump automation,
-          and secure end-to-end IT infrastructure.
-        </motion.p>
-
-        {/* Action Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
-          <motion.button
-            onClick={() => setIsContactOpen(true)}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-[#1CB08F] text-white px-8 py-4 rounded font-bold tracking-wide shadow-lg shadow-[#1CB08F]/25 hover:bg-white hover:text-[#152F52] hover:shadow-xl text-center min-w-[200px] transition-all duration-300 cursor-pointer"
+    <section className="relative w-full pt-28 pb-4 md:pt-36 md:pb-8 max-w-7xl mx-auto flex flex-col gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-8 z-10">
+        {/* Left Column: Fixed-Height Stabilized Typography & CTAs */}
+        <div className="lg:col-span-7 flex flex-col items-start gap-5 w-full">
+          {/* Tagline Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2.5 bg-white px-4 py-1.5 rounded-full border border-[#F1F5F9] shadow-xs"
           >
-            Deploy Solutions
-          </motion.button>
-          <motion.a
-            href="#services"
-            onClick={(e) => handleNavClick(e, "services")}
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="bg-transparent border-2 border-white/80 hover:border-[#1CB08F] text-white hover:text-[#1CB08F] px-8 py-4 rounded font-bold tracking-wide text-center min-w-[200px] transition-all duration-300 cursor-pointer backdrop-blur-xs"
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
+            <span className="text-[12px] font-bold tracking-[0.18em] text-[#44474e] uppercase">
+              BEYOND THE DIGITAL
+            </span>
+          </motion.div>
+
+          {/* Main Headline with fixed height container to eliminate any layout shift */}
+          <div className="w-full min-h-[96px] sm:min-h-[110px] md:min-h-[120px] flex items-start">
+            <DecryptText
+              as="h1"
+              text="Future-Ready Technology for Scalable Growth."
+              variant="display"
+              speed={30}
+              stagger={35}
+              startDelay={150}
+              loop={false}
+              retriggerOnHover={true}
+              className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[44px] text-[#001a39] max-w-2xl leading-[1.18] tracking-[-0.02em]"
+            />
+          </div>
+
+          {/* Subheader with fixed height container & stable body variant */}
+          <div className="w-full min-h-[84px] sm:min-h-[84px] md:min-h-[84px] flex items-start">
+            <DecryptText
+              as="p"
+              text="Empowering businesses through custom software, smart pump automation, and secure end-to-end IT infrastructure."
+              variant="body"
+              speed={18}
+              stagger={16}
+              startDelay={500}
+              loop={false}
+              retriggerOnHover={true}
+              className="text-base sm:text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-xl"
+            />
+          </div>
+
+          {/* Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-2"
           >
-            Explore Services
-          </motion.a>
-        </motion.div>
-      </motion.div>
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="bg-[#1CB08F] text-white font-bold text-sm px-8 py-4 rounded-full shadow-[0_4px_14px_0_rgba(28,176,143,0.39)] hover:shadow-[0_6px_20px_rgba(28,176,143,0.3)] hover:bg-[#159376] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              Deploy Solutions
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={scrollToSolutions}
+              className="bg-white text-[#001a39] border border-[#F1F5F9] font-bold text-sm px-8 py-4 rounded-full hover:bg-[#F1F5F9] active:scale-95 transition-colors flex items-center justify-center shadow-xs cursor-pointer"
+            >
+              Explore Services
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Right Column: Full-width, uncropped 3D Mini Robot Hero */}
+        <div className="lg:col-span-5 w-full relative flex items-center justify-center overflow-visible">
+          {/* Subtle Ambient Glow */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#1CB08F]/15 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+
+          {/* Full-width 3D Robot Canvas */}
+          <div className="w-full h-[440px] sm:h-[480px] md:h-[520px] relative flex items-center justify-center overflow-visible">
+            <MiniRobotCanvas
+              scale={1.3}
+              color="#ffffff"
+              pantallaColor="#1CB08F"
+              pantallaBrillo={1.4}
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      </div>
 
       <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </section>

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Headset } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactModal from "./ContactModal";
 
@@ -24,119 +24,89 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Pump Automation", href: "/automation" },
     { label: "Software", href: "/software" },
-    { label: "Automation", href: "/automation" },
     { label: "Infrastructure", href: "/infrastructure" },
+    { label: "About Us", href: "/about" },
+    { label: "Careers", href: "/careers" },
   ];
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-[#152F52]/10 shadow-md py-3"
-            : "bg-transparent py-4"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Left: Brand Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-3 group"
-          >
-            <div className={`relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
-              !scrolled ? "bg-white/95 p-1.5 rounded shadow-sm backdrop-blur-sm" : "bg-transparent"
-            }`}>
-              <Image
-                src="/Col Logo.svg"
-                alt="COLTECH Brand Logo"
-                width={40}
-                height={32}
-                className="h-8 w-auto object-contain"
-                priority
-              />
-            </div>
-            <span className={`font-bold text-2xl tracking-tight transition-colors ${
-              scrolled ? "text-[#152F52]" : "text-white"
-            }`}>
-              COL<span className="text-[#1CB08F]">TECH</span>
-            </span>
-          </Link>
-
-          {/* Center: Nav Links */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={`text-sm font-bold tracking-wide transition-all relative py-1.5 flex items-center gap-1.5 ${
-                    isActive
-                      ? "text-[#1CB08F]"
-                      : scrolled
-                        ? "text-[#152F52] hover:text-[#1CB08F]"
-                        : "text-white hover:text-[#1CB08F]"
-                  }`}
-                >
-                  {/* Active pulsing dot indicator */}
-                  {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#1CB08F] inline-block animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
-                  )}
-                  {item.label}
-                  {/* Underline bar */}
-                  <span
-                    className={`absolute bottom-0 left-0 h-[2.5px] rounded-full transition-all duration-300 ${
-                      isActive
-                        ? "w-full bg-[#1CB08F] shadow-[0_0_8px_rgba(28,176,143,0.7)]"
-                        : "w-0 group-hover:w-full bg-[#1CB08F]"
-                    }`}
-                  ></span>
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Right: CTA Button & Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => setIsModalOpen(true)}
-              className="bg-[#1CB08F] text-white flex items-center justify-center p-2.5 rounded md:px-6 md:py-2.5 shadow-md hover:bg-[#152F52] hover:shadow-lg transition-all duration-300 font-bold text-sm tracking-wide cursor-pointer"
-            >
-              <Headset className="w-5 h-5 md:hidden text-white" />
-              <span className="hidden md:inline">Contact Us</span>
-            </motion.button>
-            
-            <button 
-              className="md:hidden flex items-center justify-center p-1 rounded focus:outline-none"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle Navigation Menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className={`w-6 h-6 ${scrolled ? 'text-[#152F52]' : 'text-white'}`} />
-              ) : (
-                <Menu className={`w-6 h-6 ${scrolled ? 'text-[#152F52]' : 'text-white'}`} />
-              )}
-            </button>
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl rounded-full bg-white/85 backdrop-blur-xl border border-white/60 shadow-lg shadow-[#001a39]/5 flex justify-between items-center px-6 md:px-8 py-3 z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/95 shadow-md py-2.5" : ""
+      }`}>
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="h-8 w-8 rounded-full bg-white border border-[#F1F5F9] shadow-xs flex items-center justify-center p-1 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <Image
+              src="/Col Logo.svg"
+              alt="COLTECH Logo"
+              width={24}
+              height={24}
+              className="h-5 w-auto object-contain"
+              priority
+            />
           </div>
-        </div>
-      </motion.header>
+          <span className="font-bold text-xl md:text-2xl text-[#001a39] tracking-tight leading-none">
+            COL<span className="text-[#1CB08F]">TECH</span>
+          </span>
+        </Link>
 
-      {/* Mobile Menu Overlay */}
+        {/* Center Nav Links */}
+        <div className="hidden md:flex items-center gap-7 text-sm font-medium text-[#44474e]">
+          {navLinks.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`transition-colors duration-200 hover:text-[#1CB08F] relative py-1 ${
+                  isActive ? "text-[#1CB08F] font-bold" : ""
+                }`}
+              >
+                {item.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="active-pill"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#1CB08F] rounded-full"
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Right CTA Button */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="hidden md:block bg-[#001a39] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#152f52] active:scale-95 transition-all shadow-sm cursor-pointer"
+          >
+            Contact Us
+          </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-[#001a39] p-1.5 focus:outline-none"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Dropdown Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-20 left-0 right-0 bg-white border-b border-[#152F52]/10 shadow-xl z-40 md:hidden flex flex-col p-6 gap-4"
+            className="fixed top-20 left-4 right-4 bg-white/95 backdrop-blur-2xl border border-[#F1F5F9] rounded-2xl p-6 shadow-2xl z-40 md:hidden flex flex-col gap-3"
           >
             {navLinks.map((item) => {
               const isActive = pathname === item.href;
@@ -145,13 +115,10 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-lg font-bold tracking-wide transition-colors py-2 border-b border-[#152F52]/5 flex items-center gap-2 ${
-                    isActive ? "text-[#1CB08F]" : "text-[#152F52] hover:text-[#1CB08F]"
+                  className={`text-base font-semibold py-2.5 px-3 rounded-lg transition-colors ${
+                    isActive ? "text-[#1CB08F] bg-[#1CB08F]/10" : "text-[#001a39] hover:bg-[#F1F5F9]"
                   }`}
                 >
-                  {isActive && (
-                    <span className="w-2 h-2 rounded-full bg-[#1CB08F] inline-block"></span>
-                  )}
                   {item.label}
                 </Link>
               );
@@ -161,7 +128,7 @@ export default function Navbar() {
                 setIsMobileMenuOpen(false);
                 setIsModalOpen(true);
               }}
-              className="w-full bg-[#1CB08F] text-white py-3.5 rounded font-bold text-center mt-2 hover:bg-[#152F52] transition-colors shadow-md"
+              className="w-full bg-[#1CB08F] text-white py-3 rounded-xl font-bold text-center mt-2 shadow-md hover:bg-[#159376] transition-colors"
             >
               Contact Us
             </button>
@@ -169,11 +136,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }
