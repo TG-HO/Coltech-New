@@ -21,31 +21,31 @@ import {
   HardDrive,
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
+import ForecourtTelemetryWidget from "@/components/ui/ForecourtTelemetryWidget";
 
 export default function AutomationPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [activePump, setActivePump] = useState<1 | 2 | 3>(1);
 
   const features = [
     {
       title: "Direct Electronic Register Coupling",
-      desc: "Hardware-level interfacing with major dispenser manufacturers (Wayne, Gilbarco, Tokheim, Tatsuno) via isolated RS-485/current loop bus.",
+      desc: "Hardware-level interfacing with Wayne, Gilbarco, Tokheim, and Tatsuno dispensers via isolated RS-485/current loop interfaces. Zero-delay capture of exact volume, transaction total, nozzle ID, and unit pricing.",
       icon: Cpu,
     },
     {
-      title: "Live Underground Tank Density & Wetstock",
-      desc: "Precision magnetostrictive probe telemetry delivering continuous volume, water ingress detection, and automated leak alerting.",
+      title: "Automated Tank Gauging (ATG) & Wetstock Reconciliation",
+      desc: "Continuous underground tank volume tracking via precision magnetostrictive probes with real-time density detection, water ingress warnings, and automated leak detection alerts.",
       icon: Gauge,
     },
     {
-      title: "Automated Ledger & POS Synchronization",
-      desc: "Zero manual intervention. Every dispensing transaction logs directly to centralized ERP ledgers with microsecond timestamps.",
-      icon: Database,
+      title: "Offline-Resilient Forecourt Edge Gateways",
+      desc: "Local on-site computing gateways that store all dispensing records during internet disruptions, executing automatic background reconciliation with the centralized ERP immediately upon network restoration.",
+      icon: HardDrive,
     },
     {
-      title: "Offline-Resilient Edge Storage",
-      desc: "Local embedded gateways maintain a continuous transaction queue during internet cuts, automatically syncing upon network recovery.",
-      icon: HardDrive,
+      title: "Automated Ledger & POS Synchronization",
+      desc: "Instant conversion of dispenser pulses into audited sales ledger entries. Eliminates cash discrepancies, prevents unauthorized fuel dispensing, and ensures complete tax compliance.",
+      icon: Database,
     },
   ];
 
@@ -82,7 +82,7 @@ export default function AutomationPage() {
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
             <span className="text-[12px] font-bold tracking-[0.2em] text-[#44474e] uppercase">
-              INDUSTRIAL EDGE TELEMETRY
+              01 • INDUSTRIAL EDGE TELEMETRY
             </span>
           </motion.div>
 
@@ -94,7 +94,7 @@ export default function AutomationPage() {
           >
             Smart Pump & <br />
             <span className="text-[#1CB08F] relative inline-block">
-              Forecourt Automation
+              Forecourt Automation Systems
               <svg
                 className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
                 preserveAspectRatio="none"
@@ -111,7 +111,7 @@ export default function AutomationPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-3xl mb-8"
           >
-            Hardware-to-software integration protocols designed specifically for fuel station pump control loops, retail POS synchronization, and automated wetstock reconciliation.
+            Eliminate fuel variance, manual register lags, and unauthorized transactions. COLTECH delivers hardware-level coupling with major fuel dispenser registers, automated ATG wetstock reconciliation, and continuous offline-first ledger synchronization.
           </motion.p>
 
           <motion.div
@@ -131,101 +131,35 @@ export default function AutomationPage() {
         </div>
       </section>
 
-      {/* Interactive Telemetry Dashboard Section */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
-        <div className="bento-card bg-[#001a39] text-white p-7 sm:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-[#1CB08F] animate-ping" />
-              <div>
-                <span className="text-xs font-mono font-bold text-white tracking-widest uppercase block">
-                  LIVE OPERATIONAL NODE TELEMETRY
-                </span>
-                <span className="text-[11px] text-white/50 font-mono">TAJ GASOLINE CENTRAL HUB • NODE #4092</span>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 p-1.5 rounded-xl self-start sm:self-auto">
-              {([1, 2, 3] as const).map((p) => (
-                <button
-                  key={p}
-                  onClick={() => setActivePump(p)}
-                  className={`px-4 py-1.5 text-xs font-mono rounded-lg cursor-pointer transition-all ${
-                    activePump === p
-                      ? "bg-[#1CB08F] text-white font-bold shadow-xs"
-                      : "text-white/70 hover:text-white"
-                  }`}
-                >
-                  DISPENSER 0{p}
-                </button>
-              ))}
-            </div>
-          </div>
+      {/* Dual-Pane Forecourt Telemetry & Wetstock Control Center */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <ForecourtTelemetryWidget />
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">DISPENSER STATUS</span>
-              <span className="text-2xl font-bold font-mono text-[#1CB08F] mt-2">
-                {activePump === 3 ? "STANDBY" : "ACTIVE"}
-              </span>
-              <span className="text-[11px] text-emerald-400 font-mono mt-1">Voltage: 228V (Stable)</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">FLOW RATE</span>
-              <span className="text-2xl font-bold font-mono text-white mt-2">
-                {activePump === 1 ? "98.4" : activePump === 2 ? "104.2" : "0.0"} <span className="text-sm text-[#1CB08F]">L/min</span>
-              </span>
-              <span className="text-[11px] text-white/40 font-mono mt-1">Pulse Ratio: 1:100</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">CURRENT SALE</span>
-              <span className="text-2xl font-bold font-mono text-white mt-2">
-                {activePump === 1 ? "42.8" : activePump === 2 ? "118.0" : "0.0"} <span className="text-sm text-[#1CB08F]">L</span>
-              </span>
-              <span className="text-[11px] text-emerald-400 font-mono mt-1">Encrypted Ledger Synced</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">TANK DENSITY</span>
-              <span className="text-2xl font-bold font-mono text-white mt-2">
-                0.742 <span className="text-sm text-[#1CB08F]">kg/L</span>
-              </span>
-              <span className="text-[11px] text-[#1CB08F] font-mono mt-1">Tolerance: Normal</span>
-            </div>
+      {/* Enterprise Case Study Callout */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <div className="bg-white border border-[#F1F5F9] rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#1CB08F]/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="space-y-2 max-w-3xl relative z-10">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F] block">
+              ENTERPRISE CASE STUDY
+            </span>
+            <h3 className="text-2xl font-bold text-[#001a39] tracking-tight">
+              Proven at Scale: Taj Gasoline Forecourt Network
+            </h3>
+            <p className="text-sm sm:text-base text-[#44474e] leading-relaxed">
+              Deployed across multi-location forecourts, standardizing edge-to-ledger telemetry, eliminating manual variance, and synchronizing thousands of daily fuel transactions.
+            </p>
           </div>
-
-          {/* Waveform Telemetry Chart */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <div className="flex items-center justify-between text-xs font-mono text-white/60 mb-4">
-              <span className="flex items-center gap-2 text-white">
-                <Activity className="w-4 h-4 text-[#1CB08F]" />
-                REAL-TIME PULSE OSCILLATION TELEMETRY
-              </span>
-              <span className="text-[#1CB08F] font-bold">2.4 GHz LoRa Mesh • Latency: 12ms</span>
+          <div className="flex items-center gap-3 shrink-0 relative z-10">
+            <div className="bg-[#f7f9fb] border border-[#F1F5F9] p-4 rounded-2xl text-center">
+              <span className="text-2xl font-bold font-mono text-[#001a39] block">0.00%</span>
+              <span className="text-[11px] font-mono text-[#44474e]">Variance SLA</span>
             </div>
-            <svg className="w-full h-24 text-[#1CB08F]" viewBox="0 0 500 80" fill="none">
-              <path
-                d={
-                  activePump === 1
-                    ? "M0 45 Q 60 15 125 45 T 250 35 T 375 55 T 500 40"
-                    : activePump === 2
-                    ? "M0 55 Q 75 10 150 50 T 300 25 T 450 45 T 500 30"
-                    : "M0 65 L 500 65"
-                }
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-              <path
-                d={
-                  activePump === 1
-                    ? "M0 45 Q 60 15 125 45 T 250 35 T 375 55 T 500 40 L 500 80 L 0 80 Z"
-                    : activePump === 2
-                    ? "M0 55 Q 75 10 150 50 T 300 25 T 450 45 T 500 30 L 500 80 L 0 80 Z"
-                    : "M0 65 L 500 65 L 500 80 L 0 80 Z"
-                }
-                fill="currentColor"
-                fillOpacity="0.15"
-              />
-            </svg>
+            <div className="bg-[#1CB08F]/10 border border-[#1CB08F]/20 p-4 rounded-2xl text-center">
+              <span className="text-2xl font-bold font-mono text-[#1CB08F] block">24/7</span>
+              <span className="text-[11px] font-mono text-[#001a39]">Live Reconciliation</span>
+            </div>
           </div>
         </div>
       </section>
@@ -234,7 +168,7 @@ export default function AutomationPage() {
       <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F]">
-            TECHNICAL ARCHITECTURE
+            CORE CAPABILITIES
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001a39] tracking-tight">
             Key Automation Capabilities

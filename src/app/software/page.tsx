@@ -19,6 +19,7 @@ import {
   Lock,
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
+import SoftwarePipeline from "@/components/ui/SoftwarePipeline";
 
 export default function SoftwarePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -47,23 +48,23 @@ export default function SoftwarePage() {
 
   const capabilities = [
     {
-      title: "Bespoke Enterprise ERPs",
-      desc: "Tailored multi-facility resource planning, inventory logistics, automated procurement pipelines, and hierarchical approval workflows.",
+      title: "Bespoke Enterprise ERP Solutions",
+      desc: "Modular architectures covering multi-facility inventory management, supply chain procurement, and cross-departmental approval chains with granular Role-Based Access Control (RBAC).",
       icon: Layers,
     },
     {
-      title: "High-Throughput Retail POS",
-      desc: "Offline-first point-of-sale systems engineered for high-traffic retail environments with sub-second receipt generation and instant ledger synchronization.",
+      title: "High-Throughput Retail POS Platforms",
+      desc: "Offline-first architecture engineered for rapid retail checkout environments with sub-second receipt generation, barcode hardware integration, and multi-till float reconciliation.",
       icon: Zap,
     },
     {
-      title: "Financial Auditing & Tax Modules",
-      desc: "Automated daily reconciliation, tax clearance reports, and multi-location transactional auditing dashboards.",
+      title: "Financial Reconciliation & Tax Auditing Modules",
+      desc: "Automated end-of-day settlement loops, multi-tier tax computation, digital invoice verification, and direct automated export to corporate banking ledgers.",
       icon: ShieldCheck,
     },
     {
-      title: "IoT & Hardware Integration APIs",
-      desc: "Low-latency REST and GraphQL gateways communicating with embedded forecourt microcontrollers, sensors, and remote telemetry units.",
+      title: "IoT & Hardware Interfacing APIs",
+      desc: "Ultra-low latency communication gateways connecting on-site microcontrollers, industrial scales, forecourt dispensers, and barcode scanners to central cloud databases.",
       icon: Database,
     },
   ];
@@ -101,7 +102,7 @@ export default function SoftwarePage() {
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
             <span className="text-[12px] font-bold tracking-[0.2em] text-[#44474e] uppercase">
-              ENTERPRISE SOFTWARE DIVISION
+              02 • APPLICATION ENGINEERING
             </span>
           </motion.div>
 
@@ -111,9 +112,9 @@ export default function SoftwarePage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#001a39] leading-[1.12] mb-6"
           >
-            Custom Software & <br />
+            Software Engineered for <br />
             <span className="text-[#1CB08F] relative inline-block">
-              Intelligent ERP Architecture
+              High Reliability
               <svg
                 className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
                 preserveAspectRatio="none"
@@ -130,7 +131,7 @@ export default function SoftwarePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-3xl mb-8"
           >
-            Automated deployment pipelines, high-concurrency Node microservices, and dedicated enterprise resource planning architectures built for scale.
+            We build bespoke enterprise resource planning (ERP) suites, offline-first retail POS platforms, and high-concurrency microservices engineered specifically for corporate business models where off-the-shelf software falls short.
           </motion.p>
 
           <motion.div
@@ -150,8 +151,13 @@ export default function SoftwarePage() {
         </div>
       </section>
 
+      {/* Production Pipeline & Microservice Architecture */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <SoftwarePipeline />
+      </section>
+
       {/* Interactive Tech Stack Matrix */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-16">
         <div className="bento-card bg-white p-7 sm:p-10 rounded-3xl border border-[#F1F5F9] shadow-xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#F1F5F9] pb-6 mb-8 gap-4">
             <div className="flex items-center gap-3">
@@ -180,7 +186,7 @@ export default function SoftwarePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {techDetails[selectedTab].map((item, idx) => (
               <motion.div
                 key={item.name}
@@ -198,23 +204,6 @@ export default function SoftwarePage() {
                 <CheckCircle2 className="w-4 h-4 text-[#1CB08F]" />
               </motion.div>
             ))}
-          </div>
-
-          {/* Code Spec Box */}
-          <div className="bg-[#001a39] text-white p-5 rounded-2xl font-mono text-xs overflow-x-auto border border-white/10">
-            <div className="flex items-center justify-between text-white/40 pb-3 mb-3 border-b border-white/10">
-              <span>// coltech.microservice.controller.ts</span>
-              <span className="text-[#1CB08F]">TypeScript v5.7 • High-Throughput Engine</span>
-            </div>
-            <pre className="text-white/85 leading-relaxed">
-              <span className="text-[#79f9d4]">export async function</span> <span className="text-amber-300">recordDispensingTransaction</span>(event: <span className="text-cyan-300">DispensePayload</span>) {"{\n"}
-              {"  "}<span className="text-[#79f9d4]">const</span> validation = <span className="text-[#79f9d4]">await</span> verifyHmacSignature(event.signature);{"\n"}
-              {"  "}if (!validation.ok) <span className="text-[#79f9d4]">throw new</span> UnauthorizedError(<span className="text-emerald-300">&quot;Corrupt node packet&quot;</span>);{"\n\n"}
-              {"  "}<span className="text-[#79f9d4]">return await</span> prisma.transactionLedger.create({"{\n"}
-              {"    "}data: {"{ pumpId: event.pumpId, volumeLiters: event.volume, priceCalculated: event.total }"},{"\n"}
-              {"  "}{"});\n"}
-              {"}"}
-            </pre>
           </div>
         </div>
       </section>

@@ -13,12 +13,12 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-6 text-white/85 leading-relaxed text-sm md:text-base">
           <p className="text-brand-turquoise font-mono text-xs uppercase tracking-wider">Effective Date: January 1, 2026</p>
           <p className="border-l-2 border-brand-turquoise pl-6 text-white">
-            COLTECH (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our enterprise software and automation services.
+            Circle of Life (COL) Technologies (&quot;COLTECH&quot;, &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), established in 2024, is committed to protecting your privacy and enterprise data integrity. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or deploy our industrial automation, ERP, and forecourt infrastructure services.
           </p>
           
           <div className="bg-[#193760] p-8 border border-brand-turquoise/20">
             <h3 className="text-xl font-bold text-white mb-2">1. Information We Collect</h3>
-            <p className="text-white/80">We may collect information about you in a variety of ways. The information we may collect includes personally identifiable information, such as your name, corporate organization, email address, and telephone number, and system telemetry metadata.</p>
+            <p className="text-white/80">We may collect information about you in a variety of ways. The information we may collect includes personally identifiable information, such as your name, corporate organization, email address, telephone number, and system telemetry metadata collected through industrial edge gateways and ERP nodes.</p>
           </div>
           
           <div className="bg-[#193760] p-8 border border-brand-turquoise/20">
@@ -28,7 +28,20 @@ export default function PrivacyPolicyPage() {
           
           <div className="bg-[#193760] p-8 border border-brand-turquoise/20">
             <h3 className="text-xl font-bold text-white mb-2">3. Security of Your Information</h3>
-            <p className="text-white/80">We use administrative, technical, and physical security measures to help protect your enterprise data. All database connections and live telemetry data streams are protected by 256-bit SSL encryption and strict access isolation protocols.</p>
+            <p className="text-white/80">We use administrative, technical, and physical security measures to help protect your enterprise data. All database connections and live telemetry data streams are protected by 256-bit SSL encryption, SHA-256 HMAC payload validation, and strict zero-trust VLAN isolation protocols.</p>
+          </div>
+
+          <div className="bg-[#193760] p-8 border border-brand-turquoise/20">
+            <h3 className="text-xl font-bold text-white mb-2">4. Corporate Governance & Contact</h3>
+            <p className="text-white/80">
+              For privacy and data governance inquiries, please contact our administrative desk:
+              <br />
+              <strong className="text-white">Circle of Life (COL) Technologies (COLTECH)</strong>
+              <br />
+              Office # 1, 1st Floor, Bahria Complex 4, Left Wing, Clifton, Karachi, Pakistan
+              <br />
+              Email: <a href="mailto:info@coltech.co" className="text-brand-turquoise underline">info@coltech.co</a> | Phone: +92 301 1184219
+            </p>
           </div>
         </div>
       </div>

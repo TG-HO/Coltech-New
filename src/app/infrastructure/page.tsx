@@ -16,32 +16,34 @@ import {
   CheckCircle2,
   Activity,
   Zap,
+  Video,
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
+import NocTopologyWidget from "@/components/ui/NocTopologyWidget";
 
 export default function InfrastructurePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   const pillars = [
     {
-      title: "High-Density Server Configuration",
-      desc: "Turnkey bare-metal rack architecture, multi-blade cluster virtualization, climate-controlled airflow optimization, and industrial UPS power banks.",
+      title: "High-Density Server Environments & Power Redundancy",
+      desc: "Complete server rack builds, airflow management, and industrial UPS backup arrays for mission-critical continuity. Active rack-level thermal and environmental telemetry sensors.",
       icon: Server,
     },
     {
-      title: "Structured Cabling & Fiber Optics",
-      desc: "Certified Cat6A 10Gbps Ethernet and multi-mode fiber optic backbone runs with OTDR attenuation validation and standardized patch field mapping.",
+      title: "Certified Structured Cabling & Fiber Optic Backbones",
+      desc: "Cat6A 10Gbps structured copper cabling and multi-mode fiber runs with comprehensive OTDR attenuation testing. Professional patch panel layout, color-coded cable hierarchy, and permanent port labeling.",
       icon: Network,
     },
     {
-      title: "Zero-Trust & VLAN Segmentation",
-      desc: "Granular Layer-3 firewall topology isolating retail POS terminals, guest access, CCTV cameras, and internal administrative backbones.",
-      icon: Lock,
+      title: "Zero-Trust Segmentation & Layer-3 Network Security",
+      desc: "Advanced network switching isolating POS transaction data, enterprise back-office management, guest access, and security streams. Multi-WAN SD-WAN gateways with automated carrier failover under 200ms.",
+      icon: ShieldCheck,
     },
     {
-      title: "AI CCTV & Optical Security Networks",
-      desc: "Enterprise NVR storage arrays configured in RAID 10 with on-premise neural inference streams for license plate tracking and perimeter breach alerts.",
-      icon: ShieldCheck,
+      title: "AI-Enabled CCTV & Optical Security Arrays",
+      desc: "Turnkey surveillance deployments with local RAID 10 NVR storage arrays. Edge AI computer vision integration: automated license plate recognition (ANPR), perimeter breach alerts, and forecourt safety zone monitoring.",
+      icon: Video,
     },
   ];
 
@@ -78,7 +80,7 @@ export default function InfrastructurePage() {
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#1CB08F] animate-pulse shadow-[0_0_8px_#1CB08F]"></span>
             <span className="text-[12px] font-bold tracking-[0.2em] text-[#44474e] uppercase">
-              MISSION-CRITICAL SYSTEMS
+              04 • PHYSICAL INFRASTRUCTURE
             </span>
           </motion.div>
 
@@ -88,9 +90,9 @@ export default function InfrastructurePage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#001a39] leading-[1.12] mb-6"
           >
-            Managed IT Systems & <br />
+            Turnkey Infrastructure & <br />
             <span className="text-[#1CB08F] relative inline-block">
-              Security Architectures
+              High-Density Networking
               <svg
                 className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
                 preserveAspectRatio="none"
@@ -107,7 +109,7 @@ export default function InfrastructurePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-3xl mb-8"
           >
-            High-performance physical layer networking, structural server configuration, edge computing virtualization, and continuous network health assessments.
+            Software reliability depends on the underlying physical cabling, thermal management, and power redundancy. COLTECH designs certified Cat6A/fiber optic backbones, climate-controlled server rooms, and zero-trust switching fabrics.
           </motion.p>
 
           <motion.div
@@ -127,76 +129,9 @@ export default function InfrastructurePage() {
         </div>
       </section>
 
-      {/* Interactive Server Rack Telemetry Widget */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
-        <div className="bento-card bg-[#001a39] text-white p-7 sm:p-10 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-6 mb-8 gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-[#1CB08F] animate-ping" />
-              <div>
-                <span className="text-xs font-mono font-bold text-white tracking-widest uppercase block">
-                  PHYSICAL TOPOLOGY & RACK TELEMETRY
-                </span>
-                <span className="text-[11px] text-white/50 font-mono">PRIMARY DATACENTER ALPHA • 99.99% UPTIME</span>
-              </div>
-            </div>
-            <span className="text-xs font-mono text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-md border border-emerald-500/30 self-start sm:self-auto">
-              ALL POWER BANKS OPERATIONAL
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">RACK TEMPERATURE</span>
-              <span className="text-3xl font-bold font-mono text-[#1CB08F] mt-2">
-                38.2 <span className="text-base text-white/70">°C</span>
-              </span>
-              <span className="text-[11px] text-emerald-400 font-mono mt-1">Airflow: 420 CFM (Optimal)</span>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">SD-WAN LATENCY</span>
-              <span className="text-3xl font-bold font-mono text-white mt-2">
-                8 <span className="text-base text-[#1CB08F]">ms</span>
-              </span>
-              <span className="text-[11px] text-white/40 font-mono mt-1">Dual 1Gbps Fiber + LTE Standby</span>
-            </div>
-
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex flex-col justify-between">
-              <span className="text-xs font-mono text-white/50 uppercase">PACKET INTEGRITY</span>
-              <span className="text-3xl font-bold font-mono text-white mt-2">
-                0.00 <span className="text-base text-[#1CB08F]">% Loss</span>
-              </span>
-              <span className="text-[11px] text-emerald-400 font-mono mt-1">CRC Error Count: 0</span>
-            </div>
-          </div>
-
-          {/* Blade Units Visualization */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
-            <span className="text-xs font-mono text-white/70 uppercase block mb-4">
-              CHASSIS ENCLOSURE #01 — 42U MANAGED BLADES
-            </span>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {[
-                { name: "CORE_GATEWAY_01", load: "18%", status: "Active" },
-                { name: "ERP_DB_CLUSTER", load: "42%", status: "Active" },
-                { name: "AI_INFERENCE_NVR", load: "64%", status: "Active" },
-                { name: "SDWAN_FAILOVER", load: "04%", status: "Standby" },
-              ].map((blade, idx) => (
-                <div key={idx} className="bg-black/30 border border-white/10 p-3.5 rounded-xl flex flex-col justify-between">
-                  <div className="flex items-center justify-between text-[11px] font-mono mb-2">
-                    <span className="text-white/60">{blade.name}</span>
-                    <div className="w-2 h-2 rounded-full bg-[#1CB08F]" />
-                  </div>
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-white/40">Load: {blade.load}</span>
-                    <span className="text-[#1CB08F] font-bold">{blade.status}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* 3-Tier Enterprise NOC & Redundancy Topology Dashboard */}
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <NocTopologyWidget />
       </section>
 
       {/* 4 Pillars Grid */}

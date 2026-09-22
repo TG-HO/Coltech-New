@@ -300,40 +300,43 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Real-Time Fuel Flow Graph */}
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-5 relative z-10">
-                <div className="flex items-center justify-between text-xs font-mono text-white/60 mb-2">
-                  <span className="flex items-center gap-1.5">
+              {/* Real-Time Forecourt Telemetry & ATG Widget */}
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-5 relative z-10 space-y-3 font-mono">
+                <div className="flex items-center justify-between text-xs text-white/60 pb-2 border-b border-white/10">
+                  <span className="flex items-center gap-1.5 text-white">
                     <Activity className="w-3.5 h-3.5 text-[#1CB08F]" />
-                    DISPENSER WAVEFORM TELEMETRY
+                    FORECOURT NOZZLE & ATG STATUS
                   </span>
-                  <span className="text-[#1CB08F] font-bold">2.4 GHz LoRa Mesh</span>
+                  <span className="text-[#1CB08F] font-bold">RS-485 • TAJ-KHI-04</span>
                 </div>
-                <svg className="w-full h-20 text-[#1CB08F]" viewBox="0 0 400 80" fill="none">
-                  <path
-                    d={
-                      activePump === 1
-                        ? "M0 45 Q 50 15 100 45 T 200 35 T 300 55 T 400 40"
-                        : activePump === 2
-                        ? "M0 55 Q 60 10 120 50 T 240 25 T 360 45 T 400 30"
-                        : "M0 65 L 400 65"
-                    }
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d={
-                      activePump === 1
-                        ? "M0 45 Q 50 15 100 45 T 200 35 T 300 55 T 400 40 L 400 80 L 0 80 Z"
-                        : activePump === 2
-                        ? "M0 55 Q 60 10 120 50 T 240 25 T 360 45 T 400 30 L 400 80 L 0 80 Z"
-                        : "M0 65 L 400 65 L 400 80 L 0 80 Z"
-                    }
-                    fill="currentColor"
-                    fillOpacity="0.15"
-                  />
-                </svg>
+
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div className="bg-black/30 p-2.5 rounded-lg border border-white/5">
+                    <div className="flex justify-between text-[10px] text-white/50">
+                      <span>PUMP 01</span>
+                      <span className="text-[#1CB08F]">SUPER 92</span>
+                    </div>
+                    <div className="text-sm font-bold text-white mt-1">41.5 L/min</div>
+                    <span className="text-[10px] text-emerald-400">PKR 14,905 Synced</span>
+                  </div>
+
+                  <div className="bg-black/30 p-2.5 rounded-lg border border-white/5">
+                    <div className="flex justify-between text-[10px] text-white/50">
+                      <span>ATG TANK 01</span>
+                      <span className="text-cyan-400">84.6% FILL</span>
+                    </div>
+                    <div className="text-sm font-bold text-white mt-1">42,300 L</div>
+                    <span className="text-[10px] text-cyan-300">Water Ingress: 2.1mm</span>
+                  </div>
+                </div>
+
+                <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full text-[11px] text-emerald-400 w-full justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Underground Leak Sentry: Nominal
+                  </span>
+                  <span className="text-white/40">24.2°C Density Ok</span>
+                </div>
               </div>
 
               {/* Footer status bar */}
@@ -409,20 +412,43 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {/* Code Snippet Box */}
-              <div className="bg-[#001a39] text-white p-4 rounded-xl font-mono text-xs overflow-x-auto border border-white/10">
-                <div className="flex items-center justify-between text-white/40 pb-2 mb-2 border-b border-white/10 text-[11px]">
-                  <span>// coltech.schema.prisma</span>
-                  <span className="text-[#1CB08F]">v4.1.0 High-Concurrency</span>
+              {/* Data Ingestion & Microservice Pipeline Preview */}
+              <div className="bg-[#001a39] text-white p-4 rounded-xl font-mono text-xs border border-white/10 space-y-3">
+                <div className="flex items-center justify-between text-white/40 pb-2 border-b border-white/10 text-[11px]">
+                  <span className="flex items-center gap-1.5 text-white">
+                    <Zap className="w-3.5 h-3.5 text-[#1CB08F]" />
+                    EVENT INGESTION PIPELINE
+                  </span>
+                  <span className="text-[#1CB08F]">12,500 req/s • P99: 14ms</span>
                 </div>
-                <pre className="text-white/80 leading-relaxed">
-                  <span className="text-[#79f9d4]">model</span> <span className="text-white font-bold">TransactionLedger</span> {"{\n"}
-                  {"  "}id          <span className="text-amber-300">String</span>   @id @default(uuid()){"\n"}
-                  {"  "}pumpNodeId   <span className="text-amber-300">String</span>{"\n"}
-                  {"  "}volumeLiters <span className="text-amber-300">Decimal</span>  @db.Decimal(10, 3){"\n"}
-                  {"  "}syncedAt     <span className="text-amber-300">DateTime</span> @default(now()){"\n"}
-                  {"}"}
-                </pre>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px]">
+                  <div className="p-2 rounded bg-white/5 border border-white/5">
+                    <span className="text-[#1CB08F] block text-[9px]">STAGE 01</span>
+                    <strong className="text-white">Edge Ingestion</strong>
+                    <span className="text-white/50 block text-[10px] mt-0.5">RS-485 & POS Registers</span>
+                  </div>
+                  <div className="p-2 rounded bg-white/5 border border-white/5">
+                    <span className="text-[#1CB08F] block text-[9px]">STAGE 02</span>
+                    <strong className="text-white">HMAC Validation</strong>
+                    <span className="text-white/50 block text-[10px] mt-0.5">SHA-256 Tamper Proof</span>
+                  </div>
+                  <div className="p-2 rounded bg-white/5 border border-white/5">
+                    <span className="text-[#1CB08F] block text-[9px]">STAGE 03</span>
+                    <strong className="text-white">Message Broker</strong>
+                    <span className="text-white/50 block text-[10px] mt-0.5">Offline-Resilient Queue</span>
+                  </div>
+                  <div className="p-2 rounded bg-white/5 border border-white/5">
+                    <span className="text-emerald-400 block text-[9px]">STAGE 04</span>
+                    <strong className="text-white">ERP Ledger Sync</strong>
+                    <span className="text-white/50 block text-[10px] mt-0.5">Sub-Second Atomic Settlement</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-[10px] text-white/50 pt-1 border-t border-white/10">
+                  <span className="text-emerald-400">Data Integrity: 100% Guaranteed</span>
+                  <span>Zero-Loss SLA</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -625,36 +651,44 @@ export default function ServicesPage() {
                 </span>
               </div>
 
-              {/* Racks & Switch Nodes */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#001a39] text-white flex flex-col gap-3">
-                  <div className="flex items-center justify-between text-xs font-mono text-white/60">
-                    <span>RACK 01 ALPHA</span>
-                    <span className="text-[#1CB08F]">38°C</span>
+              {/* 3-Tier NOC Topology Preview */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-[#001a39] text-white flex flex-col justify-between font-mono">
+                  <div className="flex items-center justify-between text-xs text-white/60 mb-2">
+                    <span className="text-[#1CB08F] font-bold">LAYER 01 • DUAL-WAN</span>
+                    <span className="text-emerald-400">FAILOVER: &lt;180ms</span>
                   </div>
-                  <div className="space-y-1.5">
-                    {[1, 2, 3, 4].map((unit) => (
-                      <div key={unit} className="h-4 rounded bg-white/10 flex items-center justify-between px-2 text-[9px] font-mono text-white/70">
-                        <span>BLADE #{unit}</span>
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#1CB08F]" />
-                      </div>
-                    ))}
+                  <div className="space-y-2 text-xs">
+                    <div className="flex justify-between items-center bg-white/5 p-2 rounded-lg">
+                      <span className="text-white/80">Primary Fiber</span>
+                      <span className="text-[#1CB08F] font-bold">1.0 Gbps • 4ms</span>
+                    </div>
+                    <div className="flex justify-between items-center bg-white/5 p-2 rounded-lg">
+                      <span className="text-white/80">LTE/5G Hot-Spare</span>
+                      <span className="text-amber-400 font-bold">Standby BGP</span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#f7f9fb] border border-[#F1F5F9] flex flex-col justify-between">
+                <div className="p-4 rounded-xl bg-[#f7f9fb] border border-[#F1F5F9] flex flex-col justify-between font-mono">
                   <div>
-                    <span className="text-xs font-mono font-bold text-[#001a39] block mb-1">SD-WAN ROUTING</span>
-                    <span className="text-xs text-[#44474e]">Dual Fiber + LTE Failover</span>
-                  </div>
-                  <div className="space-y-2 mt-4 pt-2 border-t border-[#F1F5F9]">
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-[#44474e]">Primary WAN:</span>
-                      <span className="text-[#1CB08F] font-bold">1.0 Gbps</span>
+                    <div className="flex items-center justify-between text-xs mb-2">
+                      <span className="font-bold text-[#001a39]">ENVIRONMENTAL TELEMETRY</span>
+                      <span className="text-[#1CB08F] text-[10px]">CRAC DUAL N+1</span>
                     </div>
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-[#44474e]">Packet Loss:</span>
-                      <span className="text-emerald-600 font-bold">0.00%</span>
+                    <div className="space-y-1.5 text-xs">
+                      <div className="flex justify-between text-[#44474e]">
+                        <span>Rack Temp:</span>
+                        <strong className="text-[#001a39]">21.4°C (Climate-Controlled)</strong>
+                      </div>
+                      <div className="flex justify-between text-[#44474e]">
+                        <span>UPS Battery:</span>
+                        <strong className="text-emerald-600">4.2 hrs remaining</strong>
+                      </div>
+                      <div className="flex justify-between text-[#44474e]">
+                        <span>OTDR Attenuation:</span>
+                        <strong className="text-emerald-600">Verified (0.18 dB/km)</strong>
+                      </div>
                     </div>
                   </div>
                 </div>

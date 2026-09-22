@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Software & Intelligent ERP | COLTECH",
-  description: "Automated pipeline compilation, cross-platform mobile environments, and dedicated custom enterprise systems.",
+  title: "Bespoke Enterprise Software & High-Throughput POS Systems | COLTECH",
+  description: "Scalable, high-reliability enterprise software, custom ERP platforms, and offline-first POS solutions engineered for high concurrency and zero downtime.",
+  openGraph: {
+    title: "Bespoke Enterprise Software & High-Throughput POS Systems | COLTECH",
+    description: "Scalable, high-reliability enterprise software, custom ERP platforms, and offline-first POS solutions engineered for high concurrency and zero downtime.",
+    url: "https://coltech.co/software",
+  },
+  alternates: {
+    canonical: "https://coltech.co/software",
+  },
 };
 
 export default function SoftwareLayout({
@@ -18,12 +26,12 @@ export default function SoftwareLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Custom Enterprise Software & ERP",
+            "name": "Bespoke Enterprise Software & High-Throughput POS Systems",
             "provider": {
               "@type": "Organization",
-              "name": "COLTECH"
+              "name": "Circle of Life (COL) Technologies (COLTECH)"
             },
-            "description": "Automated pipeline compilation, cross-platform mobile environments, and dedicated custom enterprise systems."
+            "description": "Scalable, high-reliability enterprise software, custom ERP platforms, and offline-first POS solutions engineered for high concurrency and zero downtime."
           })
         }}
       />

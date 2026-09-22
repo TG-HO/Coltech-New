@@ -22,6 +22,7 @@ import {
   Lock,
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
+import ArchitectureInfographic from "@/components/ui/ArchitectureInfographic";
 
 export default function AboutPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -78,9 +79,9 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#001a39] leading-[1.12] mb-6"
           >
-            Engineering the Future of{" "}
+            Bridging Physical Hardware with <br />
             <span className="text-[#1CB08F] relative inline-block">
-              Industrial Automation
+              Intelligent Enterprise Software
               <svg
                 className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
                 preserveAspectRatio="none"
@@ -98,7 +99,7 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-[#44474e] font-medium leading-relaxed max-w-3xl mb-8"
           >
-            Circle of Life (COL) delivers scalable IT infrastructure, intelligent software, and edge data solutions built for demanding enterprise environments.
+            Founded in 2024 in Karachi, Circle of Life Technologies (COLTECH) was established to solve a critical operational vulnerability: the disconnect between physical mechanical assets and corporate enterprise systems. From our flagship deployment with Taj Gasoline to multi-industry implementations across retail, manufacturing, and commercial real estate, we build technology that functions with total reliability.
           </motion.p>
         </div>
       </section>
@@ -250,118 +251,23 @@ export default function AboutPage() {
       </section>
 
       {/* ------------------------------------------------------------------------ */}
-      {/* 4. OPERATIONAL HERITAGE & CLIENTS */}
+      {/* 4. OPERATIONAL HERITAGE & ARCHITECTURE INFOGRAPHIC */}
       {/* ------------------------------------------------------------------------ */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Narrative Left */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-6"
-          >
-            <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F]">
-                OUR HERITAGE & TRUST
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#001a39] tracking-tight">
-                Architecting Mission-Critical Systems for Industry Leaders
-              </h2>
-            </div>
-            <p className="text-base text-[#44474e] leading-relaxed">
-              Founded in 2024, Circle of Life Technologies (COLTECH) originated to address a critical industry vulnerability: the fragmentation between industrial forecourt machinery, server rooms, and software platforms.
-            </p>
-            <p className="text-base text-[#44474e] leading-relaxed">
-              Our anchor rollout with <strong>Taj Gasoline</strong> established nationwide retail fuel dispensing telemetry, zero-loss wetstock auditing, and automated real-time point-of-sale ledgers. Today, we continue to engineer resilient technologies that empower mission-critical operations.
-            </p>
-            <div className="p-4 rounded-xl bg-white border border-[#F1F5F9] shadow-xs flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#1CB08F]/10 text-[#1CB08F] flex items-center justify-center shrink-0">
-                <Award className="w-5 h-5 text-[#1CB08F]" />
-              </div>
-              <div className="text-xs text-[#44474e]">
-                <strong className="text-[#001a39] block text-sm">Taj Gasoline Strategic Anchor Partner</strong>
-                Nationwide deployment across 200+ forecourts and multi-tier server clusters.
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Interactive Server Rack & Control Room Dashboard Graphic */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 w-full"
-          >
-            <div className="bento-card bg-[#001a39] text-white p-7 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-[#1CB08F] animate-ping" />
-                  <div>
-                    <span className="text-xs font-mono font-bold text-white tracking-widest uppercase block">
-                      COLTECH NOC & COMMAND CENTER
-                    </span>
-                    <span className="text-[10px] text-white/50 font-mono">ACTIVE TELEMETRY CLUSTER</span>
-                  </div>
-                </div>
-                <span className="text-xs font-mono text-[#1CB08F] bg-[#1CB08F]/20 px-2.5 py-1 rounded-md border border-[#1CB08F]/30">
-                  ALL NODES HEALTHY
-                </span>
-              </div>
-
-              {/* Server Grid View */}
-              <div className="grid grid-cols-2 gap-4 mb-5">
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col justify-between">
-                  <div className="flex justify-between items-center text-xs font-mono text-white/60 mb-2">
-                    <span>SERVER RACK #01</span>
-                    <span className="text-[#1CB08F]">99.99%</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-[#1CB08F] h-full w-[24%]" />
-                    </div>
-                    <span className="text-[11px] font-mono text-white/70 block">Core Load: 24% (Optimal)</span>
-                  </div>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex flex-col justify-between">
-                  <div className="flex justify-between items-center text-xs font-mono text-white/60 mb-2">
-                    <span>EDGE POS LEDGERS</span>
-                    <span className="text-emerald-400">SYNCED</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-[#1CB08F] h-full w-[100%]" />
-                    </div>
-                    <span className="text-[11px] font-mono text-white/70 block">0 Pending Reconciliations</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Real-Time Event Feed */}
-              <div className="bg-black/40 border border-white/10 rounded-xl p-4 font-mono text-xs text-white/80 space-y-2">
-                <div className="flex items-center justify-between text-[11px] text-white/40 pb-2 border-b border-white/10">
-                  <span>LIVE REPLICATION STREAM</span>
-                  <span className="text-[#1CB08F]">TLS 1.3</span>
-                </div>
-                <div className="flex items-center gap-2 text-[11px]">
-                  <span className="text-[#1CB08F]">&gt;</span>
-                  <span>[08:42:19] Taj Gasoline Node Alpha telemetry packet ACK received.</span>
-                </div>
-                <div className="flex items-center gap-2 text-[11px]">
-                  <span className="text-[#1CB08F]">&gt;</span>
-                  <span>[08:42:20] Automatic wetstock calibration verified within ±0.01% tolerance.</span>
-                </div>
-                <div className="flex items-center gap-2 text-[11px]">
-                  <span className="text-emerald-400">&gt;</span>
-                  <span>[08:42:22] Failover SD-WAN loop standby ping latency: 12ms.</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F]">
+            OUR HERITAGE & TRUST
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001a39] tracking-tight">
+            Architecting Mission-Critical Systems for Industry Leaders
+          </h2>
+          <p className="text-base sm:text-lg text-[#44474e] leading-relaxed">
+            Founded in 2024, Circle of Life Technologies (COLTECH) originated to address a critical industry vulnerability: the fragmentation between industrial forecourt machinery, server rooms, and software platforms.
+          </p>
         </div>
+
+        {/* The COLTECH Closed-Loop Industrial Architecture Component */}
+        <ArchitectureInfographic />
       </section>
 
       {/* ------------------------------------------------------------------------ */}

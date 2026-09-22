@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Managed IT Systems & Security Architectures | COLTECH",
-  description: "High-performance physical layer networking, structural server configuration, and continuous network health assessments.",
+  title: "Physical IT Infrastructure, High-Density Networking & AI CCTV | COLTECH",
+  description: "Turnkey enterprise server room design, certified structured cabling, zero-trust VLAN segmentation, and AI-powered optical surveillance networks.",
+  openGraph: {
+    title: "Physical IT Infrastructure, High-Density Networking & AI CCTV | COLTECH",
+    description: "Turnkey enterprise server room design, certified structured cabling, zero-trust VLAN segmentation, and AI-powered optical surveillance networks.",
+    url: "https://coltech.co/infrastructure",
+  },
+  alternates: {
+    canonical: "https://coltech.co/infrastructure",
+  },
 };
 
 export default function InfrastructureLayout({
@@ -18,12 +26,12 @@ export default function InfrastructureLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Managed IT Systems & Security Architectures",
+            "name": "Physical IT Infrastructure, High-Density Networking & AI CCTV",
             "provider": {
               "@type": "Organization",
-              "name": "COLTECH"
+              "name": "Circle of Life (COL) Technologies (COLTECH)"
             },
-            "description": "High-performance physical layer networking, structural server configuration, and continuous network health assessments."
+            "description": "Turnkey enterprise server room design, certified structured cabling, zero-trust VLAN segmentation, and AI-powered optical surveillance networks."
           })
         }}
       />

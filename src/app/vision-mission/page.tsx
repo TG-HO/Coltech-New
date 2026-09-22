@@ -104,15 +104,15 @@ export default function VisionMissionPage() {
                 LONG-TERM HORIZON
               </span>
               <h2 className="text-3xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                Our Vision
+                Corporate Vision
               </h2>
               <p className="text-base text-[#44474e] leading-relaxed">
-                To become the definitive technology engineering partner for mission-critical industries across emerging and global markets. We envision a connected ecosystem where every physical operation—from pipeline flow to server cluster uptime—is continuously monitored, automated, and secured.
+                To be the benchmark technology partner across emerging and regional markets, creating interconnected, automated digital nervous systems for modern enterprises.
               </p>
             </div>
             <div className="mt-8 pt-4 border-t border-[#F1F5F9] flex items-center gap-2 text-xs font-semibold text-[#001a39]">
               <Globe className="w-4 h-4 text-[#1CB08F]" />
-              <span>National & Global Standard</span>
+              <span>National & Regional Benchmark</span>
             </div>
           </motion.div>
 
@@ -133,15 +133,15 @@ export default function VisionMissionPage() {
                 CORE OBJECTIVE
               </span>
               <h2 className="text-3xl font-bold text-white group-hover:text-[#1CB08F] transition-colors">
-                Our Mission
+                Corporate Mission
               </h2>
               <p className="text-base text-white/80 leading-relaxed">
-                To deploy elite software and hardware solutions that eradicate operational downtime, inventory variance, and administrative overhead. We engineer software that scales, physical infrastructure that endures, and automations that redefine enterprise performance.
+                To design, deploy, and manage secure, scalable, and fail-safe IT solutions that eliminate operational friction, maximize capital efficiency, and deliver verified enterprise growth.
               </p>
             </div>
             <div className="mt-8 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-white/90 relative z-10">
               <CheckCircle2 className="w-4 h-4 text-[#1CB08F]" />
-              <span>Zero-Loss Operational Architecture</span>
+              <span>Verified Enterprise Growth</span>
             </div>
           </motion.div>
         </div>

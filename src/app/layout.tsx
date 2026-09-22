@@ -14,8 +14,20 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://coltech.co"),
-  title: "Enterprise IT & Infrastructure Automation | COLTECH",
-  description: "COLTECH engineers premium custom software, industrial automation loops, secure network environments, and AI surveillance solutions.",
+  title: "COLTECH | Industrial Automation, Enterprise ERP & Infrastructure Engineering",
+  description: "COLTECH delivers end-to-end mission-critical digital systems, smart fuel pump automation, custom enterprise software, and robust physical IT infrastructure.",
+  keywords: [
+    "fuel pump automation Pakistan",
+    "forecourt automation systems",
+    "enterprise ERP software",
+    "IT infrastructure Karachi",
+    "industrial IoT solutions",
+    "retail POS systems",
+    "Taj Gasoline technology partner"
+  ],
+  authors: [{ name: "Circle of Life (COL) Technologies" }],
+  creator: "COLTECH",
+  publisher: "Circle of Life (COL) Technologies",
   icons: {
     icon: [
       { url: "/Col Logo.svg", type: "image/svg+xml" },
@@ -24,11 +36,18 @@ export const metadata: Metadata = {
     apple: "/Col Logo.svg",
   },
   openGraph: {
-    title: "Enterprise IT & Infrastructure Automation | COLTECH",
-    description: "COLTECH engineers premium custom software, industrial automation loops, secure network environments, and AI surveillance solutions.",
-    images: ["/capsule-bg.png"],
+    title: "COLTECH | Industrial Automation, Enterprise ERP & Infrastructure Engineering",
+    description: "Engineering the future of industrial automation, smart pump forecourts, custom enterprise ERPs, and high-density networking.",
+    images: ["/Col Logo.svg"],
     url: "https://coltech.co",
+    siteName: "COLTECH",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "COLTECH | Industrial Automation, Enterprise ERP & Infrastructure Engineering",
+    description: "Mission-critical digital infrastructure, smart pump automation, and enterprise ERP architectures.",
   },
   alternates: {
     canonical: "https://coltech.co",
@@ -49,20 +68,37 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "COLTECH",
-              "alternateName": "Circle of Life",
+              "name": "Circle of Life (COL) Technologies",
+              "alternateName": ["COLTECH", "Circle of Life Technologies"],
+              "legalName": "Circle of Life (COL) Technologies",
               "url": "https://coltech.co",
               "foundingDate": "2024",
               "logo": "https://coltech.co/Col Logo.svg",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Office # 1, 1st Floor, Bahria Complex 4, Left Wing, Clifton",
+                "addressLocality": "Karachi",
+                "addressCountry": "PK"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+92 301 1184219",
+                "email": "info@coltech.co",
+                "contactType": "corporate sales and technical support"
+              },
               "knowsAbout": [
-                "Enterprise Software Development",
-                "Point of Sale POS Architectures",
-                "Industrial Pump ERP Automation Systems",
-                "Wetstock Sensor Telemetry Systems",
-                "AI-enabled CCTV Surveillance Monitoring",
-                "Managed Network Infrastructure Engineering"
+                "Smart Fuel Pump & Forecourt Automation Systems",
+                "Automated Tank Gauging ATG Wetstock Reconciliation",
+                "Enterprise Resource Planning ERP Architecture",
+                "High-Throughput Offline-First Retail POS Platforms",
+                "Certified Cat6A and Fiber Optic Physical Infrastructure",
+                "Zero-Trust Layer-3 Network Security & SD-WAN Failover",
+                "Edge Computer Vision and ANPR Optical Telemetry"
               ],
-              "keyCustomers": "Taj Gasoline"
+              "customer": {
+                "@type": "Organization",
+                "name": "Taj Gasoline"
+              }
             })
           }}
         />

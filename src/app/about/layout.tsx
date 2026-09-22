@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | COLTECH Enterprise",
-  description: "Learn about Circle of Life (COLTECH), our core values, mission, and the history behind our enterprise IT infrastructure systems.",
+  title: "About COLTECH | Pioneering Industrial Automation & Enterprise Solutions",
+  description: "Learn about Circle of Life Technologies (COLTECH), established in 2024 to modernize enterprise infrastructure, fuel retail operations, and IT automation.",
   openGraph: {
-    title: "About Us | COLTECH Enterprise",
-    description: "Learn about Circle of Life (COLTECH), our core values, mission, and the history behind our enterprise IT infrastructure systems.",
+    title: "About COLTECH | Pioneering Industrial Automation & Enterprise Solutions",
+    description: "Learn about Circle of Life Technologies (COLTECH), established in 2024 to modernize enterprise infrastructure, fuel retail operations, and IT automation.",
     url: "https://coltech.co/about",
   },
   alternates: {
@@ -28,9 +28,9 @@ export default function AboutLayout({
               "@type": "AboutPage",
               "mainEntity": {
                 "@type": "Organization",
-                "name": "COLTECH",
-                "alternateName": "Circle of Life",
-                "description": "Enterprise IT systems, custom software, and automation solutions.",
+                "name": "Circle of Life (COL) Technologies (COLTECH)",
+                "alternateName": "Circle of Life Technologies",
+                "description": "Pioneering industrial automation, smart forecourt telemetry, custom enterprise ERPs, and mission-critical physical infrastructure.",
                 "url": "https://coltech.co"
               }
             })

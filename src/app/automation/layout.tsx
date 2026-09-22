@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Industrial Automation & IoT | COLTECH",
-  description: "Seamless SCADA integration, automated wetstock telemetry, and AI-driven workflow architectures.",
+  title: "Smart Forecourt & Fuel Pump Automation Systems | COLTECH",
+  description: "Eliminate fuel variance, manual logbook errors, and revenue leakage with COLTECH's real-time fuel dispenser telemetry and automated wetstock ERP.",
+  openGraph: {
+    title: "Smart Forecourt & Fuel Pump Automation Systems | COLTECH",
+    description: "Eliminate fuel variance, manual logbook errors, and revenue leakage with COLTECH's real-time fuel dispenser telemetry and automated wetstock ERP.",
+    url: "https://coltech.co/automation",
+  },
+  alternates: {
+    canonical: "https://coltech.co/automation",
+  },
 };
 
 export default function AutomationLayout({
@@ -18,12 +26,12 @@ export default function AutomationLayout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Industrial Automation & IoT",
+            "name": "Smart Forecourt & Fuel Pump Automation Systems",
             "provider": {
               "@type": "Organization",
-              "name": "COLTECH"
+              "name": "Circle of Life (COL) Technologies (COLTECH)"
             },
-            "description": "Seamless SCADA integration, automated wetstock telemetry, and AI-driven workflow architectures."
+            "description": "Eliminate fuel variance, manual logbook errors, and revenue leakage with COLTECH's real-time fuel dispenser telemetry and automated wetstock ERP."
           })
         }}
       />

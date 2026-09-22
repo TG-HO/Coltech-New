@@ -92,9 +92,26 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
             {/* Form Body */}
             <div className="p-8 flex-1 flex flex-col">
-              <p className="text-brand-navy/80 text-sm leading-relaxed mb-8">
+              <p className="text-brand-navy/80 text-sm leading-relaxed mb-5">
                 Consult directly with our engineering architects regarding enterprise software, IoT pump telemetry, or network security infrastructure.
               </p>
+
+              {/* Verified Direct Contact Callout */}
+              <div className="bg-[#f7f9fb] border border-[#F1F5F9] rounded-xl p-3.5 mb-6 text-xs text-[#44474e] space-y-1.5 font-mono">
+                <div className="flex items-center justify-between text-[#001a39] font-bold pb-1 border-b border-[#F1F5F9]">
+                  <span>DIRECT ENGINEERING DESK</span>
+                  <span className="text-[#1CB08F]">EST. 2024</span>
+                </div>
+                <div className="text-[11px] text-[#001a39]">
+                  <strong>Hotline:</strong> +92 301 1184219
+                </div>
+                <div className="text-[11px] text-[#001a39]">
+                  <strong>Email:</strong> info@coltech.co
+                </div>
+                <div className="text-[10px] text-[#8097c0] leading-snug pt-1">
+                  HQ: Office # 1, 1st Floor, Bahria Complex 4, Left Wing, Clifton, Karachi
+                </div>
+              </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-6 flex-1">
                 <div className="flex flex-col gap-2">

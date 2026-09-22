@@ -21,24 +21,29 @@ export default function CoreValuesPage() {
 
   const values = [
     {
-      title: "Engineering Precision",
-      desc: "Absolute accuracy in every line of production code, database transaction, and physical server rack configuration.",
-      icon: Target,
-    },
-    {
-      title: "99.99% Reliability Guarantee",
-      desc: "Architecting fail-safe multi-path redundancies so that hardware malfunctions and internet interruptions never disrupt operations.",
-      icon: ShieldCheck,
-    },
-    {
-      title: "Integrity & Zero Black-Box Code",
-      desc: "Transparent, secure, and auditable systems with full data ownership and zero opaque proprietary lock-in.",
+      title: "Integrity",
+      desc: "Absolute transparency in architecture, honest system capacity reporting, and ethical data governance with zero opaque lock-ins.",
       icon: Lock,
     },
     {
-      title: "Agile Engineering Partnership",
-      desc: "We operate as an agile, dedicated technical extension of your executive leadership and operational teams.",
+      title: "Engineering Innovation",
+      desc: "Future-ready implementations and modular architectures designed to scale seamlessly as client operations expand.",
+      icon: Lightbulb,
+    },
+    {
+      title: "Operational Excellence",
+      desc: "Enterprise-grade uptime guarantees backed by active field SLAs, redundant failover topologies, and proactive health telemetry.",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Deep Collaboration",
+      desc: "Working alongside operational teams on the ground to solve complex forecourt and enterprise workflow pain points.",
       icon: Users,
+    },
+    {
+      title: "Quantifiable Value",
+      desc: "Engineering systems that directly eliminate fuel variance, prevent transactional downtime, and accelerate enterprise revenue.",
+      icon: Target,
     },
   ];
 

@@ -57,77 +57,69 @@ export default function EnterpriseEcosystem() {
                 </span>
               </div>
               <h3 className="text-2xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                Smart Pump Automation
+                Smart Pump Automation & Forecourt ERP
               </h3>
               <p className="text-sm sm:text-base text-[#44474e] max-w-xl leading-relaxed">
-                Revolutionizing fuel dispensing with real-time telemetry, automated billing integration, and predictive maintenance algorithms.
+                Millisecond synchronization between dispensing nozzles, underground tank telemetry, and centralized finance ledgers.
               </p>
             </div>
 
-            {/* Live Dashboard UI Graphic */}
+            {/* Live Forecourt & ATG Telemetry Preview */}
             <div className="z-10 mt-6 pt-4 border-t border-[#F1F5F9]">
               <div className="w-full bg-[#001a39] text-white rounded-xl p-4 sm:p-5 border border-[#F1F5F9] shadow-md relative overflow-hidden group-hover:border-[#1CB08F]/40 transition-colors">
                 <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
                     <Activity className="w-4 h-4 text-[#1CB08F] animate-pulse" />
                     <span className="text-xs font-mono font-bold text-white tracking-wider">
-                      REAL-TIME FUEL FLOW ANALYTICS
+                      FORECOURT TELEMETRY & ATG CONTROL
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-mono text-[#1CB08F] bg-[#1CB08F]/20 px-2 py-0.5 rounded">
-                      LIVE STREAM
+                      LIVE RS-485
                     </span>
-                    <span className="text-[11px] font-mono text-white/50">24 Hours</span>
+                    <span className="text-[11px] font-mono text-white/50">TAJ-KHI-04</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                  <div className="sm:col-span-2 bg-white/5 rounded-lg p-3 relative overflow-hidden">
-                    <div className="flex justify-between text-[11px] font-mono text-white/60 mb-2">
-                      <span>DISPENSING RATE</span>
-                      <span className="text-[#1CB08F] font-bold">202 L/min TOTAL</span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+                  {/* Bay 01 */}
+                  <div className="bg-white/5 rounded-lg p-2.5 border border-white/5">
+                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
+                      <span>PUMP 01</span>
+                      <span className="text-[#1CB08F] font-bold">SUPER 92</span>
                     </div>
-                    <svg className="w-full h-20 text-[#1CB08F]" viewBox="0 0 400 80" fill="none">
-                      <path
-                        d="M0 50 Q 40 20 80 45 T 160 30 T 240 60 T 320 25 T 400 35"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                      />
-                      <path
-                        d="M0 50 Q 40 20 80 45 T 160 30 T 240 60 T 320 25 T 400 35 L 400 80 L 0 80 Z"
-                        fill="currentColor"
-                        fillOpacity="0.18"
-                      />
-                    </svg>
+                    <div className="text-sm font-bold font-mono text-white">41.5 <span className="text-[10px] text-[#1CB08F]">L/m</span></div>
+                    <div className="text-[10px] text-emerald-400 font-mono mt-0.5">Dispensing • PKR 14,905</div>
                   </div>
 
-                  <div className="bg-white/5 rounded-lg p-3 flex flex-col justify-between gap-2">
-                    <div className="text-[10px] font-mono text-white/50 uppercase">Pump Status</div>
-                    <div className="space-y-1.5 text-xs">
-                      <div className="flex justify-between items-center">
-                        <span className="text-white/80">Pump 01</span>
-                        <span className="text-[#1CB08F] font-mono font-bold">98 L/m</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-white/80">Pump 02</span>
-                        <span className="text-[#1CB08F] font-mono font-bold">104 L/m</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className="text-white/80">Pump 03</span>
-                        <span className="text-amber-400 font-mono text-[10px]">Standby</span>
-                      </div>
+                  {/* Bay 02 */}
+                  <div className="bg-white/5 rounded-lg p-2.5 border border-white/5">
+                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
+                      <span>PUMP 02</span>
+                      <span className="text-cyan-400 font-bold">HI-OCTANE</span>
                     </div>
+                    <div className="text-sm font-bold font-mono text-white">38.0 <span className="text-[10px] text-cyan-400">L/m</span></div>
+                    <div className="text-[10px] text-emerald-400 font-mono mt-0.5">Dispensing • PKR 9,240</div>
+                  </div>
+
+                  {/* ATG Tank Status */}
+                  <div className="bg-white/5 rounded-lg p-2.5 border border-[#1CB08F]/30">
+                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
+                      <span>ATG TANK 01</span>
+                      <span className="text-[#1CB08F] font-bold">84.6%</span>
+                    </div>
+                    <div className="text-xs font-bold font-mono text-white">42,300 L</div>
+                    <div className="text-[10px] text-cyan-300 font-mono mt-0.5">Water: 2.1mm • 24.2°C</div>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] font-mono text-white/50 pt-2 border-t border-white/10">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#1CB08F]" />
-                    Taj Gasoline Network Connected
+                  <span className="flex items-center gap-1.5 text-emerald-400">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Underground Leak Sentry: Nominal
                   </span>
-                  <span>Latency: 14ms</span>
+                  <span>Taj Gasoline Network Synced (14ms)</span>
                 </div>
               </div>
             </div>
@@ -155,10 +147,10 @@ export default function EnterpriseEcosystem() {
                 </span>
               </div>
               <h3 className="text-lg font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                Custom Software
+                Custom Enterprise Software
               </h3>
               <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
-                Tailored applications engineered to solve specific operational bottlenecks with scalable architectures.
+                Bespoke, offline-first applications and high-throughput enterprise systems built to eliminate operational bottlenecks.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-mono text-[#001a39]/60">
@@ -168,7 +160,7 @@ export default function EnterpriseEcosystem() {
           </Link>
         </motion.div>
 
-        {/* 3. AI & Machine Learning (Entire Card Clickable) */}
+        {/* 3. AI & Edge Computer Vision (Entire Card Clickable) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,7 +168,7 @@ export default function EnterpriseEcosystem() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <Link
-            href="/software"
+            href="/services"
             className="bento-card w-full h-full flex flex-col justify-between group p-6 sm:p-7 cursor-pointer block"
           >
             <div className="space-y-3">
@@ -189,20 +181,20 @@ export default function EnterpriseEcosystem() {
                 </span>
               </div>
               <h3 className="text-lg font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                AI & Machine Learning
+                AI & Edge Computer Vision
               </h3>
               <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
-                Actionable intelligence extracted from your data streams for predictive modeling.
+                On-premise neural inference for real-time license plate recognition (ANPR), security verification, and forecourt safety.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-mono text-[#001a39]/60">
-              <span>Predictive Telemetry</span>
-              <span className="text-[#1CB08F] font-bold">99.8% Accuracy</span>
+              <span>ANPR & Safety Vision</span>
+              <span className="text-[#1CB08F] font-bold">YOLOv11-Edge</span>
             </div>
           </Link>
         </motion.div>
 
-        {/* 4. CCTV & Security (Entire Card Clickable) */}
+        {/* 4. Scalable Retail POS Solutions (Entire Card Clickable) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +202,7 @@ export default function EnterpriseEcosystem() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Link
-            href="/infrastructure"
+            href="/software"
             className="bento-card w-full h-full flex flex-col justify-between group p-6 sm:p-7 cursor-pointer block"
           >
             <div className="space-y-3">
@@ -223,20 +215,20 @@ export default function EnterpriseEcosystem() {
                 </span>
               </div>
               <h3 className="text-lg font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                CCTV & Security
+                Scalable Retail POS Solutions
               </h3>
               <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
-                Integrated surveillance networks with AI-driven threat detection and automated alerts.
+                Resilient, multi-branch point-of-sale systems engineered for uninterrupted billing and automated tax auditing.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-mono text-[#001a39]/60">
-              <span>24/7 AI Vision Surveillance</span>
-              <span className="text-[#1CB08F] font-bold">Zero Blindspots</span>
+              <span>Offline-First Core</span>
+              <span className="text-[#1CB08F] font-bold">Sub-Second Sync</span>
             </div>
           </Link>
         </motion.div>
 
-        {/* 5. Enterprise Networking (2 Columns Bento Card - Entire Card Clickable) */}
+        {/* 5. Physical Infrastructure & Networking (2 Columns Bento Card - Entire Card Clickable) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -258,20 +250,20 @@ export default function EnterpriseEcosystem() {
                 </span>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                Enterprise Networking
+                Physical Infrastructure & Networking
               </h3>
               <p className="text-xs sm:text-sm text-[#44474e] max-w-md leading-relaxed">
-                Robust, secure IT infrastructure design and deployment ensuring zero-downtime connectivity across distributed sites.
+                Structured Cat6A/fiber optic backbones, climate-controlled server racks, and redundant failover topologies.
               </p>
               <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#001a39]/70">
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#1CB08F]" /> SD-WAN
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F]" /> SD-WAN Failover
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-[#1CB08F]" /> VLAN Segmentation
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#1CB08F]" /> Failover Redundancy
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F]" /> OTDR Tested
                 </span>
               </div>
             </div>
