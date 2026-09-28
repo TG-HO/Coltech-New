@@ -60,6 +60,12 @@ export default function Footer() {
               </h4>
               <ul className="flex flex-col gap-2.5 text-sm text-[#8097c0]">
                 <li>
+                  <Link href="/products" className="hover:text-[#79f9d4] transition-colors flex items-center justify-between group text-white font-medium">
+                    <span>Enterprise Products</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#1CB08F]" />
+                  </Link>
+                </li>
+                <li>
                   <Link href="/automation" className="hover:text-[#79f9d4] transition-colors flex items-center justify-between group">
                     <span>Smart Pump Automation</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#1CB08F]" />

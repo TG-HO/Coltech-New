@@ -24,6 +24,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
+    { label: "Products", href: "/products" },
     { label: "Services", href: "/services" },
     { label: "Pump Automation", href: "/automation" },
     { label: "Software", href: "/software" },

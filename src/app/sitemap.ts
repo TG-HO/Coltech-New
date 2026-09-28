@@ -5,6 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     "",
+    "/products",
+    "/products/fieldsense360",
+    "/products/col-track",
+    "/products/col-tms",
     "/services",
     "/about",
     "/software",

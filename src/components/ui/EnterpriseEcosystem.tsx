@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Fuel, Code2, Cpu, Video, Network, ArrowUpRight, Activity } from "lucide-react";
+import Image from "next/image";
+import { Fuel, Code2, Cpu, Video, Network, ArrowUpRight } from "lucide-react";
 
 export default function EnterpriseEcosystem() {
   return (
@@ -64,63 +65,26 @@ export default function EnterpriseEcosystem() {
               </p>
             </div>
 
-            {/* Live Forecourt & ATG Telemetry Preview */}
+            {/* Forecourt Image */}
             <div className="z-10 mt-6 pt-4 border-t border-[#F1F5F9]">
-              <div className="w-full bg-[#001a39] text-white rounded-xl p-4 sm:p-5 border border-[#F1F5F9] shadow-md relative overflow-hidden group-hover:border-[#1CB08F]/40 transition-colors">
-                <div className="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
-                  <div className="flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-[#1CB08F] animate-pulse" />
-                    <span className="text-xs font-mono font-bold text-white tracking-wider">
-                      FORECOURT TELEMETRY & ATG CONTROL
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-[#1CB08F] bg-[#1CB08F]/20 px-2 py-0.5 rounded">
-                      LIVE RS-485
-                    </span>
-                    <span className="text-[11px] font-mono text-white/50">TAJ-KHI-04</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
-                  {/* Bay 01 */}
-                  <div className="bg-white/5 rounded-lg p-2.5 border border-white/5">
-                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
-                      <span>PUMP 01</span>
-                      <span className="text-[#1CB08F] font-bold">SUPER 92</span>
-                    </div>
-                    <div className="text-sm font-bold font-mono text-white">41.5 <span className="text-[10px] text-[#1CB08F]">L/m</span></div>
-                    <div className="text-[10px] text-emerald-400 font-mono mt-0.5">Dispensing • PKR 14,905</div>
-                  </div>
-
-                  {/* Bay 02 */}
-                  <div className="bg-white/5 rounded-lg p-2.5 border border-white/5">
-                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
-                      <span>PUMP 02</span>
-                      <span className="text-cyan-400 font-bold">HI-OCTANE</span>
-                    </div>
-                    <div className="text-sm font-bold font-mono text-white">38.0 <span className="text-[10px] text-cyan-400">L/m</span></div>
-                    <div className="text-[10px] text-emerald-400 font-mono mt-0.5">Dispensing • PKR 9,240</div>
-                  </div>
-
-                  {/* ATG Tank Status */}
-                  <div className="bg-white/5 rounded-lg p-2.5 border border-[#1CB08F]/30">
-                    <div className="flex justify-between text-[10px] font-mono text-white/60 mb-1">
-                      <span>ATG TANK 01</span>
-                      <span className="text-[#1CB08F] font-bold">84.6%</span>
-                    </div>
-                    <div className="text-xs font-bold font-mono text-white">42,300 L</div>
-                    <div className="text-[10px] text-cyan-300 font-mono mt-0.5">Water: 2.1mm • 24.2°C</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between text-[11px] font-mono text-white/50 pt-2 border-t border-white/10">
-                  <span className="flex items-center gap-1.5 text-emerald-400">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Underground Leak Sentry: Nominal
+              <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden border border-[#F1F5F9] shadow-md group-hover:border-[#1CB08F]/40 transition-colors">
+                <Image
+                  src="/Fuel Station.jpg"
+                  alt="Smart Pump Automation & Forecourt Systems"
+                  fill
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/70 via-transparent to-transparent pointer-events-none" />
+                {/* <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono text-white/90">
+                  <span className="flex items-center gap-1.5 bg-[#001a39]/80 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/10">
+                    <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse" />
+                    Forecourt Edge Telemetry
                   </span>
-                  <span>Taj Gasoline Network Synced (14ms)</span>
-                </div>
+                  <span className="bg-[#001a39]/80 backdrop-blur-xs px-2.5 py-1 rounded-md border border-white/10 text-[11px] text-[#1CB08F]">
+                    Live Operations
+                  </span>
+                </div> */}
               </div>
             </div>
           </Link>
@@ -160,7 +124,7 @@ export default function EnterpriseEcosystem() {
           </Link>
         </motion.div>
 
-        {/* 3. AI & Edge Computer Vision (Entire Card Clickable) */}
+        {/* 3. AI & Edge Computer Vision (Entire Card Clickable)
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -192,7 +156,7 @@ export default function EnterpriseEcosystem() {
               <span className="text-[#1CB08F] font-bold">YOLOv11-Edge</span>
             </div>
           </Link>
-        </motion.div>
+        </motion.div> */}
 
         {/* 4. Scalable Retail POS Solutions (Entire Card Clickable) */}
         <motion.div
@@ -228,13 +192,13 @@ export default function EnterpriseEcosystem() {
           </Link>
         </motion.div>
 
-        {/* 5. Physical Infrastructure & Networking (2 Columns Bento Card - Entire Card Clickable) */}
+        {/* 5. Physical Infrastructure & Networking (Full Width Bento Card - Entire Card Clickable) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="md:col-span-2"
+          className="col-span-1 md:col-span-3"
         >
           <Link
             href="/infrastructure"
@@ -252,7 +216,7 @@ export default function EnterpriseEcosystem() {
               <h3 className="text-lg sm:text-xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
                 Physical Infrastructure & Networking
               </h3>
-              <p className="text-xs sm:text-sm text-[#44474e] max-w-md leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#44474e] max-w-xl leading-relaxed">
                 Structured Cat6A/fiber optic backbones, climate-controlled server racks, and redundant failover topologies.
               </p>
               <div className="pt-2 flex items-center gap-4 text-xs font-mono text-[#001a39]/70">
@@ -268,17 +232,15 @@ export default function EnterpriseEcosystem() {
               </div>
             </div>
 
-            <div className="w-full md:w-56 h-32 md:h-full rounded-xl bg-[#F1F5F9] border border-white/60 relative overflow-hidden flex items-center justify-center p-4">
-              {/* Visual network topology preview */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="w-10 h-10 rounded-full bg-[#001a39] text-white flex items-center justify-center shadow-md z-10 group-hover:bg-[#1CB08F] transition-colors">
-                  <Network className="w-5 h-5 text-white" />
-                </div>
-                <div className="absolute w-28 h-28 border border-dashed border-[#1CB08F]/40 rounded-full animate-spin [animation-duration:12s]" />
-                <div className="absolute top-2 left-6 w-3 h-3 rounded-full bg-[#1CB08F] shadow-[0_0_8px_#1CB08F]" />
-                <div className="absolute bottom-2 right-6 w-3 h-3 rounded-full bg-[#1CB08F] shadow-[0_0_8px_#1CB08F]" />
-                <div className="absolute top-6 right-8 w-2.5 h-2.5 rounded-full bg-[#001a39]" />
-              </div>
+            <div className="w-full md:w-80 lg:w-96 h-52 md:h-auto md:self-stretch rounded-xl overflow-hidden border border-[#F1F5F9] shadow-xs relative shrink-0 group-hover:border-[#1CB08F]/40 transition-colors min-h-[170px]">
+              <Image
+                src="/Physical Infrastructure.png"
+                alt="Physical Infrastructure & Networking"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 384px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/30 via-transparent to-transparent pointer-events-none" />
             </div>
           </Link>
         </motion.div>
