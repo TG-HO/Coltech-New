@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
 import NocTopologyWidget from "@/components/ui/NocTopologyWidget";
+import Image from "next/image";
 
 export default function InfrastructurePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -129,9 +130,136 @@ export default function InfrastructurePage() {
         </div>
       </section>
 
-      {/* 3-Tier Enterprise NOC & Redundancy Topology Dashboard */}
+      {/* Enterprise Physical Infrastructure Showcase Collage */}
       <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <div className="space-y-6">
+          {/* Collage Header / Context */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-2">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white px-3.5 py-1 rounded-full border border-[#F1F5F9] shadow-2xs mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse"></span>
+                <span className="text-[11px] font-bold font-mono tracking-wider text-[#44474e] uppercase">
+                  ENTERPRISE SITE DEPLOYMENTS
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#001a39] tracking-tight">
+                Industrial Server Enclosures, Structured Cabling & Optical Networks
+              </h2>
+              <p className="text-xs sm:text-sm text-[#44474e] mt-1 max-w-2xl">
+                Real-world turnkey infrastructure engineered and commissioned by COLTECH — ensuring 99.999% uptime for enterprise data centers, retail forecourts, and corporate headquarters.
+              </p>
+            </div>
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="text-xs sm:text-sm font-bold text-[#152F52] hover:text-[#1CB08F] flex items-center gap-1.5 transition-colors self-start sm:self-auto shrink-0 cursor-pointer"
+            >
+              Request Site Assessment <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+
+          {/* Bento Collage Grid: 3 Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Primary Hero Showcase - 8 Cols */}
+            <div className="lg:col-span-8 bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-2xl relative group flex flex-col justify-between min-h-[360px] sm:min-h-[460px]">
+              <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px]">
+                <Image
+                  src="/Infra-1.jpg"
+                  alt="High-Density Enterprise Server Enclosure & Rack Cable Management"
+                  fill
+                  className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Bottom Info Bar */}
+              <div className="relative z-10 p-6 bg-gradient-to-t from-[#001a39] to-[#001a39]/90 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#1CB08F]/20 text-[#79f9d4] text-[10px] font-mono font-bold uppercase tracking-wider">
+                      HIGH-DENSITY DATA CENTERS
+                    </span>
+                    <span className="text-white/60 text-xs font-mono">• Turnkey Rack Builds</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    Server Enclosures & Precision Cable Management
+                  </h3>
+                  <p className="text-xs text-white/70 max-w-xl">
+                    High-density server racks featuring airflow containment, redundant power delivery, and permanent port labeling for enterprise operational continuity.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 text-xs font-mono text-[#79f9d4] bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/10 shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-ping" />
+                  <span>Tier-3 Standard</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Stacked Right Column - 4 Cols (Infra-2 and Infra-3) */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              {/* Card 2: Infra-2.jpg */}
+              <div className="bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex-1 flex flex-col justify-between">
+                <div className="relative w-full h-[180px] sm:h-[200px]">
+                  <Image
+                    src="/Infra-2.jpg"
+                    alt="Certified Structured Cabling & High-Speed Patch Panels"
+                    fill
+                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/25 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                      STRUCTURED COPPER & FIBER
+                    </span>
+                    <span className="text-[10px] text-white/50 font-mono">10Gbps Certified</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white truncate">
+                    Patch Array & Backbone Termination
+                  </h4>
+                  <p className="text-[11px] text-white/70 line-clamp-2">
+                    Professional Cat6A copper termination and high-throughput optical patch panels tested for zero packet attenuation.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3: Infra-3.jpg */}
+              <div className="bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex-1 flex flex-col justify-between">
+                <div className="relative w-full h-[180px] sm:h-[200px]">
+                  <Image
+                    src="/Infra-3.jpg"
+                    alt="Zero-Trust Switching Fabrics & Carrier Failover Routing"
+                    fill
+                    className="object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/25 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                      NETWORK FABRIC & ROUTING
+                    </span>
+                    <span className="text-[10px] text-white/50 font-mono">SD-WAN Multi-WAN</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white truncate">
+                    Mission-Critical Routing Hardware
+                  </h4>
+                  <p className="text-[11px] text-white/70 line-clamp-2">
+                    Enterprise Layer-3 switching fabrics, segmented VLAN topologies, and automatic sub-200ms failover routing.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PREVIOUS INTERACTIVE NOC TOPOLOGY WIDGET (Preserved for restoration):
         <NocTopologyWidget />
+        */}
       </section>
 
       {/* 4 Pillars Grid */}
