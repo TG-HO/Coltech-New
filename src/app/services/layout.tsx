@@ -47,13 +47,14 @@ export default function ServicesLayout({
                     "name": "Custom Software & ERP Architecture"
                   }
                 },
-                {
-                  "@type": "Offer",
-                  "itemOffered": {
-                    "@type": "Service",
-                    "name": "AI & Computer Vision Systems"
-                  }
-                },
+                // Temporarily commented for restoration:
+                // {
+                //   "@type": "Offer",
+                //   "itemOffered": {
+                //     "@type": "Service",
+                //     "name": "AI & Computer Vision Systems"
+                //   }
+                // },
                 {
                   "@type": "Offer",
                   "itemOffered": {

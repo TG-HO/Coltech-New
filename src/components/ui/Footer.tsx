@@ -83,12 +83,14 @@ export default function Footer() {
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#1CB08F]" />
                   </Link>
                 </li>
+                {/* Temporarily commented out - Preserved for restoration:
                 <li>
                   <Link href="/services" className="hover:text-[#79f9d4] transition-colors flex items-center justify-between group">
                     <span>Edge Computer Vision & ANPR</span>
                     <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-[#1CB08F]" />
                   </Link>
                 </li>
+                */}
                 <li>
                   <Link href="/automation#wetstock" className="hover:text-[#79f9d4] transition-colors flex items-center justify-between group">
                     <span>Automated Tank Gauging (ATG)</span>

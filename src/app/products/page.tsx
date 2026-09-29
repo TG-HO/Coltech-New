@@ -149,6 +149,9 @@ export default function ProductsPage() {
           const Icon = getProductIcon(product.id);
           const currentImageIndex = activeThumbIndex[product.id] ?? 0;
           const currentImage = product.gallery[currentImageIndex] || product.gallery[0];
+          const isPortraitScreen =
+            (product.id === "col-track" && currentImageIndex > 0) ||
+            currentImage.src.includes("WhatsApp");
 
           return (
             <motion.div
@@ -235,21 +238,31 @@ export default function ProductsPage() {
                   {/* Clickable Main Image Frame with Smooth Aspect Ratio */}
                   <Link
                     href={`/products/${product.slug}`}
-                    className="relative w-full h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl overflow-hidden border border-[#F1F5F9] bg-[#001a39]/5 shadow-inner group/img block cursor-pointer"
+                    className={`relative w-full h-[280px] sm:h-[360px] md:h-[400px] rounded-2xl overflow-hidden border border-[#F1F5F9] shadow-inner group/img block cursor-pointer transition-colors duration-300 ${
+                      isPortraitScreen
+                        ? "bg-gradient-to-br from-[#001429] via-[#001a39] to-[#04244a]"
+                        : "bg-[#001a39]/5"
+                    }`}
                   >
                     <Image
                       src={currentImage.src}
                       alt={currentImage.title}
                       fill
-                      className="object-cover object-top transition-transform duration-700 ease-out group-hover/img:scale-105"
+                      className={`transition-transform duration-700 ease-out group-hover/img:scale-105 ${
+                        isPortraitScreen
+                          ? "object-contain p-3 sm:p-5 drop-shadow-[0_15px_30px_rgba(0,0,0,0.6)]"
+                          : "object-cover object-top"
+                      }`}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
                       priority={index === 0}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/70 via-transparent to-transparent pointer-events-none" />
+                    {!isPortraitScreen && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/70 via-transparent to-transparent pointer-events-none" />
+                    )}
 
                     {/* Floating Info Overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                      <div className="bg-[#001a39]/80 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-white max-w-[80%]">
+                      <div className="bg-[#001a39]/85 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-white max-w-[80%] shadow-lg">
                         <p className="text-xs font-semibold truncate">{currentImage.title}</p>
                         <p className="text-[11px] text-[#79f9d4] font-mono">
                           Image {currentImageIndex + 1} of {product.gallery.length} • Click to open product
@@ -274,6 +287,10 @@ export default function ProductsPage() {
                     <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
                       {product.gallery.map((img, imgIdx) => {
                         const isSelected = imgIdx === currentImageIndex;
+                        const isThumbPortrait =
+                          img.src.includes("WhatsApp") ||
+                          (product.id === "col-track" && imgIdx > 0);
+
                         return (
                           <button
                             key={imgIdx}
@@ -282,7 +299,7 @@ export default function ProductsPage() {
                               isSelected
                                 ? "border-[#1CB08F] ring-2 ring-[#1CB08F]/30 scale-102 shadow-sm"
                                 : "border-[#F1F5F9] hover:border-[#1CB08F]/50 opacity-70 hover:opacity-100"
-                            }`}
+                            } ${isThumbPortrait ? "bg-[#001a39]" : "bg-white"}`}
                             title={img.title}
                             aria-label={`View ${img.title}`}
                           >
@@ -290,7 +307,7 @@ export default function ProductsPage() {
                               src={img.src}
                               alt={img.title}
                               fill
-                              className="object-cover object-center"
+                              className={isThumbPortrait ? "object-contain p-1" : "object-cover object-center"}
                               sizes="120px"
                             />
                             {isSelected && (

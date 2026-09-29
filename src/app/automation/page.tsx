@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Fuel,
@@ -133,7 +134,35 @@ export default function AutomationPage() {
 
       {/* Dual-Pane Forecourt Telemetry & Wetstock Control Center */}
       <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        {/* Forecourt Telemetry & ATG Control Interface Screenshot */}
+        <div className="relative w-full h-[360px] sm:h-[480px] md:h-[600px] lg:h-[700px] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-2xl bg-[#001a39] group">
+          <Image
+            src="/Pump Automation.jpeg"
+            alt="Forecourt Pump Automation & ATG Live Measurement Interface"
+            fill
+            className="object-contain p-2 md:p-4 group-hover:scale-[1.01] transition-transform duration-500"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between pointer-events-none">
+            <div className="bg-[#001a39]/85 backdrop-blur-md px-4 sm:px-5 py-2.5 rounded-2xl border border-white/10 text-white">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-[#79f9d4] font-bold block">
+                LIVE RS-485 TELEMETRY & ATG PROBE INTERFACE
+              </span>
+              <p className="text-xs text-white/70 hidden sm:block">
+                Multi-pump electronic register coupling and automated underground tank wetstock telemetry.
+              </p>
+            </div>
+            <span className="bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-xl border border-white/10 text-xs font-mono text-[#1CB08F]">
+              Live Production
+            </span>
+          </div>
+        </div>
+
+        {/* PREVIOUS INTERACTIVE TELEMETRY WIDGET (Preserved for restoration):
         <ForecourtTelemetryWidget />
+        */}
       </section>
 
       {/* Enterprise Case Study Callout */}

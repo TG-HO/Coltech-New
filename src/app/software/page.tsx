@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import ContactModal from "@/components/ui/ContactModal";
 import SoftwarePipeline from "@/components/ui/SoftwarePipeline";
+import Image from "next/image";
 
 export default function SoftwarePage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -151,9 +152,187 @@ export default function SoftwarePage() {
         </div>
       </section>
 
-      {/* Production Pipeline & Microservice Architecture */}
+      {/* Enterprise Production Dashboard Showcase Collage */}
       <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+        <div className="space-y-6">
+          {/* Collage Header / Context */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-2">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-white px-3.5 py-1 rounded-full border border-[#F1F5F9] shadow-2xs mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse"></span>
+                <span className="text-[11px] font-bold font-mono tracking-wider text-[#44474e] uppercase">
+                  LIVE ENTERPRISE INTERFACES
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#001a39] tracking-tight">
+                Deployed Enterprise Command Portals & Operational Dashboards
+              </h2>
+              <p className="text-xs sm:text-sm text-[#44474e] mt-1 max-w-2xl">
+                Bespoke portals engineered by COLTECH — powering logistics fleet dispatching, field lifecycle management, and GPS attendance matrices across hundreds of enterprise nodes.
+              </p>
+            </div>
+            <Link
+              href="/products"
+              className="text-xs sm:text-sm font-bold text-[#152F52] hover:text-[#1CB08F] flex items-center gap-1.5 transition-colors self-start sm:self-auto shrink-0"
+            >
+              Explore Products Suite <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Bento Collage Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Primary Hero Dashboard - 8 Cols */}
+            <div className="lg:col-span-8 bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-2xl relative group flex flex-col justify-between min-h-[360px] sm:min-h-[460px]">
+              <div className="relative w-full h-[260px] sm:h-[360px] md:h-[400px]">
+                <Image
+                  src="/projects-images/col-tms-hero.png"
+                  alt="COL TMS Enterprise Fleet & Order Dispatch Command Center"
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/20 to-transparent pointer-events-none" />
+              </div>
+
+              {/* Bottom Info Bar */}
+              <div className="relative z-10 p-6 bg-gradient-to-t from-[#001a39] to-[#001a39]/90 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#1CB08F]/20 text-[#79f9d4] text-[10px] font-mono font-bold uppercase tracking-wider">
+                      PRIMARY COMMAND CENTER
+                    </span>
+                    <span className="text-white/60 text-xs font-mono">• Multi-Tenant ERP</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white tracking-tight">
+                    COL TMS — Fleet Logistics & Bulk Petroleum Dispatch
+                  </h3>
+                  <p className="text-xs text-white/70 max-w-xl">
+                    Live trip tracking, driver allocation, compartmentalized petroleum billing, and automated delivery ledger reconciliation.
+                  </p>
+                </div>
+                <Link
+                  href="/products/col-tms"
+                  className="bg-[#1CB08F] hover:bg-[#159376] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm shrink-0 flex items-center gap-1.5"
+                >
+                  View System <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Stacked Right Column Dashboards - 4 Cols */}
+            <div className="lg:col-span-4 flex flex-col gap-6">
+              {/* FieldSense360 Card */}
+              <div className="bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex-1 flex flex-col justify-between">
+                <div className="relative w-full h-[180px] sm:h-[200px]">
+                  <Image
+                    src="/projects-images/FieldSense360-web-dashboard.png"
+                    alt="FieldSense360 Site Lifecycle Management Portal"
+                    fill
+                    className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/25 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                      FieldSense360
+                    </span>
+                    <span className="text-[10px] text-white/50 font-mono">Stage-Gate Audit</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white truncate">
+                    Site Lifecycle & Screening Pipeline
+                  </h4>
+                  <p className="text-[11px] text-white/70 line-clamp-2">
+                    Multi-stage physical retail site feasibility, land approvals, and civil commissioning oversight.
+                  </p>
+                </div>
+              </div>
+
+              {/* COL Track Attendance Card */}
+              <div className="bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex-1 flex flex-col justify-between">
+                <div className="relative w-full h-[180px] sm:h-[200px]">
+                  <Image
+                    src="/projects-images/col-track-dashboard-redacted.png"
+                    alt="COL Track GPS-Verified Attendance Intelligence"
+                    fill
+                    className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/25 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                      COL Track
+                    </span>
+                    <span className="text-[10px] text-white/50 font-mono">Geofenced GPS</span>
+                  </div>
+                  <h4 className="text-sm font-bold text-white truncate">
+                    Workforce Attendance Intelligence
+                  </h4>
+                  <p className="text-[11px] text-white/70 line-clamp-2">
+                    Automated geofence radius matching, live selfie audit flags, and instant payroll export.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row - 2 Equal Showcase Dashboards (6 Cols each) */}
+            <div className="lg:col-span-6 bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex flex-col justify-between">
+              <div className="relative w-full h-[220px] sm:h-[260px]">
+                <Image
+                  src="/projects-images/col-tms-feature-2-tripboard.png"
+                  alt="COL TMS Live Interactive Tripboard"
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/30 to-transparent pointer-events-none" />
+              </div>
+              <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                  REAL-TIME FLEET TELEMETRY
+                </span>
+                <h4 className="text-base font-bold text-white">
+                  Interactive Live Tripboard & Route Timeline
+                </h4>
+                <p className="text-xs text-white/70">
+                  Sub-second transit status updates, driver route adherence, and instant electronic gate-pass validation.
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 bg-[#001a39] rounded-3xl overflow-hidden border border-[#F1F5F9] shadow-lg relative group flex flex-col justify-between">
+              <div className="relative w-full h-[220px] sm:h-[260px]">
+                <Image
+                  src="/projects-images/col-tms-feature-1-dashboard.png"
+                  alt="Operations Telemetry & KPI Analytics"
+                  fill
+                  className="object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001a39] via-[#001a39]/30 to-transparent pointer-events-none" />
+              </div>
+              <div className="p-5 bg-[#001a39] border-t border-white/10 space-y-1 relative z-10">
+                <span className="text-[10px] font-mono font-bold text-[#79f9d4] uppercase tracking-wider">
+                  OPERATIONAL ANALYTICS
+                </span>
+                <h4 className="text-base font-bold text-white">
+                  Throughput Metrics & SLA Performance Index
+                </h4>
+                <p className="text-xs text-white/70">
+                  Aggregated fuel volumes, fleet turnaround durations, and enterprise SLA compliance monitoring.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* PREVIOUS INTERACTIVE SOFTWARE PIPELINE WIDGET (Preserved for restoration):
         <SoftwarePipeline />
+        */}
       </section>
 
       {/* Interactive Tech Stack Matrix */}

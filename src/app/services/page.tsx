@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Fuel,
@@ -31,9 +32,11 @@ import ContactModal from "@/components/ui/ContactModal";
 
 export default function ServicesPage() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [activePump, setActivePump] = useState<1 | 2 | 3>(1);
-  const [selectedTechCategory, setSelectedTechCategory] = useState<"frontend" | "backend" | "devops">("frontend");
+  // Temporarily commented for restoration when interactive widgets are re-enabled:
+  // const [activePump, setActivePump] = useState<1 | 2 | 3>(1);
+  // const [selectedTechCategory, setSelectedTechCategory] = useState<"frontend" | "backend" | "devops">("frontend");
 
+  /*
   const techStack = {
     frontend: [
       { name: "Next.js 16 (App Router)", type: "Framework" },
@@ -60,6 +63,7 @@ export default function ServicesPage() {
       { name: "VLAN Network Isolation", type: "Infrastructure" },
     ],
   };
+  */
 
   const steps = [
     {
@@ -184,7 +188,7 @@ export default function ServicesPage() {
       {/* 2. CORE CAPABILITY DEEP DIVES (ALTERNATING 2-COLUMN SECTIONS) */}
       {/* ------------------------------------------------------------------------ */}
       <div className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col gap-24 md:gap-32">
-        
+
         {/* ==================================================================== */}
         {/* DEEP DIVE 1: Smart Pump & Forecourt Automation */}
         {/* ==================================================================== */}
@@ -235,7 +239,7 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Right Visual: Interactive Live Forecourt Dashboard Widget */}
+          {/* Right Visual: Smart Pump Automation (Replaced with Fuel Station image, original dashboard preserved below) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -243,11 +247,32 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 w-full"
           >
+            {/* Forecourt Image */}
+            <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-2xl overflow-hidden border border-[#F1F5F9] shadow-xl group">
+              <Image
+                src="/Fuel Station.jpg"
+                alt="Smart Pump & Forecourt Automation"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/70 via-transparent to-transparent pointer-events-none" />
+              {/* <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                <span className="flex items-center gap-1.5 bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse" />
+                  Forecourt Edge Telemetry
+                </span>
+                <span className="bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10 text-[11px] text-[#1CB08F]">
+                  Live Operations
+                </span>
+              </div> */}
+            </div>
+
+            {/* PREVIOUS DASHBOARD WIDGET (Preserved for restoration):
             <div className="bento-card bg-[#001a39] text-white p-6 sm:p-7 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden">
-              {/* Background ambient radial light */}
               <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#1CB08F]/20 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Header */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6 relative z-10">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full bg-[#1CB08F] animate-ping" />
@@ -275,7 +300,6 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Pump Metrics Grid */}
               <div className="grid grid-cols-3 gap-3 mb-6 relative z-10">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 flex flex-col">
                   <span className="text-[10px] font-mono text-white/50 uppercase">FLOW RATE</span>
@@ -300,7 +324,6 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Real-Time Forecourt Telemetry & ATG Widget */}
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-5 relative z-10 space-y-3 font-mono">
                 <div className="flex items-center justify-between text-xs text-white/60 pb-2 border-b border-white/10">
                   <span className="flex items-center gap-1.5 text-white">
@@ -339,7 +362,6 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Footer status bar */}
               <div className="flex items-center justify-between text-xs font-mono text-white/50 pt-2 border-t border-white/10 relative z-10">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#1CB08F]" />
@@ -348,6 +370,7 @@ export default function ServicesPage() {
                 <span>Latency: 14ms</span>
               </div>
             </div>
+            */}
           </motion.div>
         </section>
 
@@ -355,7 +378,7 @@ export default function ServicesPage() {
         {/* DEEP DIVE 2: Custom Software & ERP Architecture (Reverse Layout) */}
         {/* ==================================================================== */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Visual: Tech Stack Interactive Matrix */}
+          {/* Left Visual: Custom ERP & Logistics Platform (Replaced interactive matrix with col-tms-hero image, original preserved below) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -363,6 +386,28 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 order-2 lg:order-1 w-full"
           >
+            {/* Custom ERP & Transport Management Hero Image */}
+            <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-2xl overflow-hidden border border-[#F1F5F9] shadow-xl group bg-[#001a39]">
+              <Image
+                src="/projects-images/col-tms-hero.png"
+                alt="Custom Enterprise Software & Logistics ERP"
+                fill
+                className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/60 via-transparent to-transparent pointer-events-none" />
+              {/* <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                <span className="flex items-center gap-1.5 bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse" />
+                  Enterprise ERP Architecture
+                </span>
+                <span className="bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10 text-[11px] text-[#1CB08F]">
+                  COL TMS & POS Core
+                </span>
+              </div> */}
+            </div>
+
+            {/* PREVIOUS INTERACTIVE SOFTWARE CARD (Preserved for restoration):
             <div className="bento-card bg-white p-6 sm:p-8 rounded-2xl border border-[#F1F5F9] shadow-xl flex flex-col gap-6">
               <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-4">
                 <div className="flex items-center gap-3">
@@ -391,7 +436,6 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Tech Pill List */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {techStack[selectedTechCategory].map((tech, idx) => (
                   <motion.div
@@ -412,7 +456,6 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {/* Data Ingestion & Microservice Pipeline Preview */}
               <div className="bg-[#001a39] text-white p-4 rounded-xl font-mono text-xs border border-white/10 space-y-3">
                 <div className="flex items-center justify-between text-white/40 pb-2 border-b border-white/10 text-[11px]">
                   <span className="flex items-center gap-1.5 text-white">
@@ -451,6 +494,7 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
+            */}
           </motion.div>
 
           {/* Right Text */}
@@ -501,10 +545,10 @@ export default function ServicesPage() {
         </section>
 
         {/* ==================================================================== */}
-        {/* DEEP DIVE 3: AI & Computer Vision */}
+        {/* DEEP DIVE 3: AI & Computer Vision (TEMPORARILY COMMENTED - Preserved for restoration) */}
         {/* ==================================================================== */}
+        {/*
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -550,7 +594,6 @@ export default function ServicesPage() {
             </div>
           </motion.div>
 
-          {/* Right Visual: AI Computer Vision HUD Scanner */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -571,12 +614,9 @@ export default function ServicesPage() {
                 </span>
               </div>
 
-              {/* Simulated Camera Feed with HUD overlays */}
               <div className="relative w-full aspect-video bg-[#0f172a] rounded-xl border border-white/10 overflow-hidden flex items-center justify-center p-4">
-                {/* Grid Overlay */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]" />
 
-                {/* Target Bounding Box 1 */}
                 <div className="absolute top-6 left-8 w-44 h-28 border-2 border-[#1CB08F] rounded-md bg-[#1CB08F]/10 flex flex-col justify-between p-2">
                   <div className="flex items-center justify-between">
                     <span className="bg-[#1CB08F] text-[#001a39] text-[10px] font-mono font-bold px-1.5 py-0.5 rounded">
@@ -587,7 +627,6 @@ export default function ServicesPage() {
                   <span className="text-[10px] font-mono text-white/80">ANPR: ABC-9482</span>
                 </div>
 
-                {/* Target Bounding Box 2 */}
                 <div className="absolute bottom-6 right-8 w-48 h-24 border border-amber-400/80 rounded-md bg-amber-400/10 flex flex-col justify-between p-2">
                   <div className="flex items-center justify-between">
                     <span className="bg-amber-400 text-[#001a39] text-[10px] font-mono font-bold px-1.5 py-0.5 rounded">
@@ -598,13 +637,11 @@ export default function ServicesPage() {
                   <span className="text-[10px] font-mono text-white/80">DISPENSING #02</span>
                 </div>
 
-                {/* Center HUD reticle */}
                 <div className="w-16 h-16 border border-dashed border-[#1CB08F]/40 rounded-full flex items-center justify-center pointer-events-none animate-spin [animation-duration:16s]">
                   <div className="w-2 h-2 rounded-full bg-[#1CB08F]" />
                 </div>
               </div>
 
-              {/* Inference Stats */}
               <div className="grid grid-cols-3 gap-3 mt-4 pt-4 border-t border-white/10 text-xs font-mono">
                 <div>
                   <span className="text-white/40 block text-[10px]">OBJECT DETECTIONS</span>
@@ -622,12 +659,13 @@ export default function ServicesPage() {
             </div>
           </motion.div>
         </section>
+        */}
 
         {/* ==================================================================== */}
         {/* DEEP DIVE 4: Physical Infrastructure & High-Density Networking (Reverse) */}
         {/* ==================================================================== */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Visual: Server Rack Telemetry & Network Topology */}
+          {/* Left Visual: Physical Infrastructure & Networking (Replaced dashboard look with Physical Infrastructure image, original preserved below) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -635,6 +673,28 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-6 order-2 lg:order-1 w-full"
           >
+            {/* Physical Infrastructure Image */}
+            <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-2xl overflow-hidden border border-[#F1F5F9] shadow-xl group">
+              <Image
+                src="/Physical Infrastructure.png"
+                alt="Physical Infrastructure & High-Density Networking"
+                fill
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#001a39]/70 via-transparent to-transparent pointer-events-none" />
+              {/* <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90">
+                <span className="flex items-center gap-1.5 bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10">
+                  <span className="w-2 h-2 rounded-full bg-[#1CB08F] animate-pulse" />
+                  Turnkey Server Infrastructure
+                </span>
+                <span className="bg-[#001a39]/80 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/10 text-[11px] text-[#1CB08F]">
+                  OTDR & Cat6A Certified
+                </span>
+              </div> */}
+            </div>
+
+            {/* PREVIOUS DASHBOARD LOOK (Preserved for restoration):
             <div className="bento-card bg-white p-6 sm:p-8 rounded-2xl border border-[#F1F5F9] shadow-xl flex flex-col gap-6">
               <div className="flex items-center justify-between border-b border-[#F1F5F9] pb-4">
                 <div className="flex items-center gap-3">
@@ -651,7 +711,6 @@ export default function ServicesPage() {
                 </span>
               </div>
 
-              {/* 3-Tier NOC Topology Preview */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-[#001a39] text-white flex flex-col justify-between font-mono">
                   <div className="flex items-center justify-between text-xs text-white/60 mb-2">
@@ -694,13 +753,13 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              {/* Security Standards Taglist */}
               <div className="flex flex-wrap gap-2 pt-2 border-t border-[#F1F5F9] text-xs font-mono text-[#001a39]">
                 <span className="px-3 py-1.5 bg-[#f7f9fb] border border-[#F1F5F9] rounded-lg">Cat6A 10Gbps Structured Cabling</span>
                 <span className="px-3 py-1.5 bg-[#f7f9fb] border border-[#F1F5F9] rounded-lg">Firewall Segmentation</span>
                 <span className="px-3 py-1.5 bg-[#f7f9fb] border border-[#F1F5F9] rounded-lg">CCTV NVR RAID Storage</span>
               </div>
             </div>
+            */}
           </motion.div>
 
           {/* Right Text */}

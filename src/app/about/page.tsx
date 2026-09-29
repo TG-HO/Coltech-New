@@ -79,9 +79,9 @@ export default function AboutPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#001a39] leading-[1.12] mb-6"
           >
-            Bridging Physical Hardware with <br />
-            <span className="text-[#1CB08F] relative inline-block">
-              Intelligent Enterprise Software
+            About
+            <span className="text-[#1CB08F] relative inline-block ml-5">
+              Us
               <svg
                 className="absolute w-full h-3 -bottom-1.5 left-0 text-[#1CB08F]/25 pointer-events-none"
                 preserveAspectRatio="none"
@@ -207,67 +207,6 @@ export default function AboutPage() {
             </div>
           </motion.div>
         </div>
-      </section>
-
-      {/* ------------------------------------------------------------------------ */}
-      {/* 3. IMPACT & ENTERPRISE SCALE METRICS */}
-      {/* ------------------------------------------------------------------------ */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">
-        <div className="bg-[#001a39] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl relative overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#1CB08F]/15 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="text-center max-w-2xl mx-auto mb-10 space-y-2 relative z-10">
-            <span className="text-xs font-mono font-bold tracking-[0.2em] text-[#1CB08F] uppercase">
-              OPERATIONAL BENCHMARKS
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Enterprise Scale By The Numbers
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-            {stats.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center group hover:border-[#1CB08F]/40 transition-colors"
-              >
-                <span className="text-3xl sm:text-4xl font-extrabold font-mono text-[#1CB08F] tracking-tight mb-2 group-hover:scale-105 transition-transform">
-                  {item.value}
-                </span>
-                <span className="text-sm font-bold text-white mb-1">
-                  {item.label}
-                </span>
-                <span className="text-xs font-mono text-white/50">
-                  {item.sub}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ------------------------------------------------------------------------ */}
-      {/* 4. OPERATIONAL HERITAGE & ARCHITECTURE INFOGRAPHIC */}
-      {/* ------------------------------------------------------------------------ */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-8 mb-16">
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#1CB08F]">
-            OUR HERITAGE & TRUST
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001a39] tracking-tight">
-            Architecting Mission-Critical Systems for Industry Leaders
-          </h2>
-          <p className="text-base sm:text-lg text-[#44474e] leading-relaxed">
-            Founded in 2024, Circle of Life Technologies (COLTECH) originated to address a critical industry vulnerability: the fragmentation between industrial forecourt machinery, server rooms, and software platforms.
-          </p>
-        </div>
-
-        {/* The COLTECH Closed-Loop Industrial Architecture Component */}
-        <ArchitectureInfographic />
       </section>
 
       {/* ------------------------------------------------------------------------ */}
