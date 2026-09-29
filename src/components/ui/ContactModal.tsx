@@ -16,6 +16,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     name: "",
     email: "",
     company: "",
+    phone: "",
     message: ""
   });
 
@@ -39,15 +40,40 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
     setIsSubmitting(true);
 
-    // Simulate API submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          organization: formData.company,
+          phone: formData.phone,
+          message: formData.message,
+          serviceInterest: "Direct Engineering Consultation",
+          source: "Quick Contact Slide-Over Modal",
+        }),
+      });
 
-    setIsSubmitting(false);
-    toast.success("Inquiry received. A senior systems engineer will contact you shortly.");
-    
-    // Reset and close
-    setFormData({ name: "", email: "", company: "", message: "" });
-    onClose();
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to dispatch consultation inquiry.");
+      }
+
+      toast.success("Inquiry received. A senior systems engineer will contact you shortly.");
+      
+      // Reset and close
+      setFormData({ name: "", email: "", company: "", phone: "", message: "" });
+      onClose();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to dispatch inquiry. Please try again.";
+      toast.error(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -156,6 +182,21 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={handleChange}
                     className="w-full border-b-2 border-brand-navy/15 py-2.5 bg-transparent text-brand-navy focus:outline-none focus:border-brand-turquoise transition-colors rounded-none placeholder:text-brand-navy/30 text-sm"
                     placeholder="Acme Industrial Corp"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="phone" className="text-xs font-bold text-brand-navy tracking-wider uppercase">
+                    Phone / WhatsApp
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full border-b-2 border-brand-navy/15 py-2.5 bg-transparent text-brand-navy focus:outline-none focus:border-brand-turquoise transition-colors rounded-none placeholder:text-brand-navy/30 text-sm"
+                    placeholder="+92 300 0000000"
                   />
                 </div>
 

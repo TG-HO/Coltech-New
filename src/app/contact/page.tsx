@@ -29,15 +29,38 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: "Main Contact Page",
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to dispatch consultation inquiry.");
+      }
+
       setSubmitted(true);
-      toast.success("Consultation request logged. Our engineering desk will respond within 4 business hours.");
-    }, 900);
+      toast.success(
+        "Consultation request dispatched! Our systems engineering desk has received your specifications."
+      );
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to dispatch email. Please try again.";
+      toast.error(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
