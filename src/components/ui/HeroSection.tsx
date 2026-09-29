@@ -45,7 +45,7 @@ export default function HeroSection() {
               onClick={() => setIsContactOpen(true)}
               className="bg-[#1CB08F] text-white font-bold text-sm px-7 py-3.5 rounded-full shadow-[0_4px_14px_0_rgba(28,176,143,0.39)] hover:shadow-[0_6px_20px_rgba(28,176,143,0.3)] hover:bg-[#159376] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              Deploy Solutions
+              Get in touch
               <ArrowRight className="w-4 h-4" />
             </button>
             <button

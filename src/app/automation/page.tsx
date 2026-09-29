@@ -125,7 +125,7 @@ export default function AutomationPage() {
               onClick={() => setIsContactOpen(true)}
               className="bg-[#1CB08F] text-white font-bold text-sm px-8 py-4 rounded-full shadow-[0_4px_14px_0_rgba(28,176,143,0.39)] hover:bg-[#159376] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              Request Forecourt Audit
+              Consult Forecourt Specialist
               <ArrowRight className="w-4 h-4" />
             </button>
           </motion.div>

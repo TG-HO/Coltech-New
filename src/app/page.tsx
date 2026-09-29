@@ -9,7 +9,7 @@ export default function Home() {
       <HeroSection />
 
       {/* 2. Enterprise Trust Bar */}
-      <TrustBar />
+      {/* <TrustBar /> */}
 
       {/* 3. Bento Grid: Enterprise Ecosystem */}
       <EnterpriseEcosystem />

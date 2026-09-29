@@ -174,12 +174,12 @@ export default function ServicesPage() {
               Consult an Engineer
               <ArrowRight className="w-4 h-4" />
             </button>
-            <Link
+            {/* <Link
               href="/#trust-bar"
               className="bg-white text-[#001a39] border border-[#152F52]/20 hover:border-[#1CB08F] hover:text-[#1CB08F] font-bold text-sm px-8 py-4 rounded-full transition-all flex items-center justify-center shadow-xs active:scale-95 text-center"
             >
               View Case Studies
-            </Link>
+            </Link> */}
           </motion.div>
         </div>
       </section>
@@ -901,7 +901,7 @@ export default function ServicesPage() {
                 href="/about"
                 className="bg-transparent border border-white/30 text-white hover:border-[#1CB08F] hover:text-[#1CB08F] font-bold text-sm px-8 py-4 rounded-full transition-all text-center"
               >
-                Learn About Our Team
+                Learn More About Us
               </Link>
             </div>
           </div>

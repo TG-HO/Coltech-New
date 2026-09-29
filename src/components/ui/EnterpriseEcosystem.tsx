@@ -17,7 +17,7 @@ export default function EnterpriseEcosystem() {
           transition={{ duration: 0.4 }}
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001a39] tracking-tight"
         >
-          Enterprise Ecosystem
+          Our Services
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 15 }}
