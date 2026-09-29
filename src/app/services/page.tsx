@@ -894,7 +894,7 @@ export default function ServicesPage() {
                 onClick={() => setIsContactOpen(true)}
                 className="bg-[#1CB08F] text-white font-bold text-base px-10 py-5 rounded-full shadow-[0_4px_20px_rgba(28,176,143,0.4)] hover:bg-[#159376] hover:shadow-[0_6px_25px_rgba(28,176,143,0.5)] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer text-center"
               >
-                Initiate Deployment
+                Talk to Us
                 <ArrowRight className="w-5 h-5" />
               </button>
               <Link

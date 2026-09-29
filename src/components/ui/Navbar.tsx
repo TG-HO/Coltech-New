@@ -24,21 +24,21 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
+    { label: "Home", href: "/" },
     { label: "Products", href: "/products" },
     { label: "Services", href: "/services" },
     { label: "Pump Automation", href: "/automation" },
     { label: "Software", href: "/software" },
     { label: "Infrastructure", href: "/infrastructure" },
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers" },
+    // { label: "Careers", href: "/careers" },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl rounded-full bg-white/90 backdrop-blur-xl border border-white/60 shadow-lg shadow-[#152F52]/5 flex justify-between items-center px-6 md:px-8 py-2.5 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 shadow-md py-2" : ""
-        }`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)] md:w-[calc(100%-48px)] max-w-7xl rounded-full bg-white/90 backdrop-blur-xl border border-white/60 shadow-lg shadow-[#152F52]/5 flex justify-between items-center px-6 md:px-8 py-2.5 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 shadow-md py-2" : ""
+          }`}
       >
         {/* Brand Logo & Name */}
         <Link href="/" className="flex items-center gap-3.5 group">
@@ -65,9 +65,8 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`transition-colors duration-200 hover:text-[#1CB08F] relative py-1 ${
-                  isActive ? "text-[#1CB08F] font-bold" : ""
-                }`}
+                className={`transition-colors duration-200 hover:text-[#1CB08F] relative py-1 ${isActive ? "text-[#1CB08F] font-bold" : ""
+                  }`}
               >
                 {item.label}
                 {isActive && (
@@ -118,9 +117,8 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-base font-semibold py-2.5 px-3 rounded-lg transition-colors ${
-                    isActive ? "text-[#1CB08F] bg-[#1CB08F]/10" : "text-[#152F52] hover:bg-[#F1F5F9]"
-                  }`}
+                  className={`text-base font-semibold py-2.5 px-3 rounded-lg transition-colors ${isActive ? "text-[#1CB08F] bg-[#1CB08F]/10" : "text-[#152F52] hover:bg-[#F1F5F9]"
+                    }`}
                 >
                   {item.label}
                 </Link>

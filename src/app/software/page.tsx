@@ -353,11 +353,10 @@ export default function SoftwarePage() {
                 <button
                   key={tab}
                   onClick={() => setSelectedTab(tab)}
-                  className={`px-4 py-1.5 text-xs font-bold rounded-lg capitalize cursor-pointer transition-all ${
-                    selectedTab === tab
-                      ? "bg-[#001a39] text-white shadow-xs"
-                      : "text-[#44474e] hover:text-[#001a39]"
-                  }`}
+                  className={`px-4 py-1.5 text-xs font-bold rounded-lg capitalize cursor-pointer transition-all ${selectedTab === tab
+                    ? "bg-[#001a39] text-white shadow-xs"
+                    : "text-[#44474e] hover:text-[#001a39]"
+                    }`}
                 >
                   {tab}
                 </button>
@@ -451,7 +450,8 @@ export default function SoftwarePage() {
               onClick={() => setIsContactOpen(true)}
               className="bg-[#1CB08F] text-white font-bold text-base px-10 py-5 rounded-full shadow-[0_4px_20px_rgba(28,176,143,0.4)] hover:bg-[#159376] active:scale-95 transition-all flex items-center justify-center gap-3 cursor-pointer shrink-0"
             >
-              Start Software Project
+              Have an Idea?<br></br>
+              Let's Discuss
               <ArrowRight className="w-5 h-5" />
             </button>
           </div>

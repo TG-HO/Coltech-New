@@ -13,7 +13,7 @@ const MiniRobotCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-full min-h-[420px] flex items-center justify-center">
+      <div className="w-full h-full min-h-[280px] sm:min-h-[380px] flex items-center justify-center">
         <div className="w-10 h-10 rounded-full border-2 border-[#1CB08F] border-t-transparent animate-spin" />
       </div>
     ),
@@ -32,8 +32,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full pt-28 pb-4 md:pt-36 md:pb-8 max-w-7xl mx-auto flex flex-col gap-6">
-      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-8 z-10">
+    <section className="relative w-full pt-20 pb-0 md:pt-28 md:pb-0 max-w-7xl mx-auto flex flex-col gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-8 z-10">
         {/* Left Column: Fixed-Height Stabilized Typography & CTAs */}
         <div className="lg:col-span-7 flex flex-col items-start gap-5 w-full">
           {/* Smooth Kinetic Hero Text */}
@@ -62,8 +62,8 @@ export default function HeroSection() {
           {/* Subtle Ambient Glow */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#1CB08F]/15 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
 
-          {/* Full-width 3D Robot Canvas */}
-          <div className="w-full h-[440px] sm:h-[480px] md:h-[520px] relative flex items-center justify-center overflow-visible">
+          {/* Full-width 3D Robot Canvas - Responsive Height */}
+          <div className="w-full h-[300px] sm:h-[380px] md:h-[460px] lg:h-[520px] relative flex items-center justify-center overflow-visible">
             <MiniRobotCanvas
               scale={1.3}
               color="#ffffff"

@@ -166,7 +166,7 @@ export default function AutomationPage() {
       </section>
 
       {/* Enterprise Case Study Callout */}
-      <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
+      {/* <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-6 mb-12">
         <div className="bg-white border border-[#F1F5F9] rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#1CB08F]/5 rounded-full blur-2xl pointer-events-none" />
           <div className="space-y-2 max-w-3xl relative z-10">
@@ -191,7 +191,7 @@ export default function AutomationPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Feature Grid */}
       <section className="w-full max-w-7xl mx-auto px-6 md:px-12 py-12 mb-16">

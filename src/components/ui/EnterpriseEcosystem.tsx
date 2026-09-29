@@ -7,7 +7,7 @@ import { Fuel, Code2, Cpu, Video, Network, ArrowUpRight } from "lucide-react";
 
 export default function EnterpriseEcosystem() {
   return (
-    <section id="solutions" className="w-full py-12 md:py-16 max-w-7xl mx-auto flex flex-col gap-10">
+    <section id="solutions" className="w-full pt-0 pb-6 md:pb-8 max-w-7xl mx-auto flex flex-col gap-6">
       {/* Section Header */}
       <div className="text-center space-y-3">
         <motion.h2
@@ -90,75 +90,61 @@ export default function EnterpriseEcosystem() {
           </Link>
         </motion.div>
 
-        {/* 2. Custom Software (Entire Card Clickable) */}
+        {/* 2. Custom Enterprise Software (Expanded to 2 Rows, Matching Smart Pump Card) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
+          className="md:col-span-1 md:row-span-2"
         >
           <Link
             href="/software"
-            className="bento-card w-full h-full flex flex-col justify-between group p-6 sm:p-7 cursor-pointer block"
+            className="bento-card w-full h-full flex flex-col justify-between group overflow-hidden relative min-h-[460px] p-6 sm:p-8 cursor-pointer block"
           >
-            <div className="space-y-3">
+            {/* Ambient Glow */}
+            <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#1CB08F]/10 rounded-full blur-3xl group-hover:bg-[#1CB08F]/20 transition-all duration-500 pointer-events-none" />
+
+            <div className="space-y-4 z-10 relative">
               <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-[#F1F5F9] flex items-center justify-center text-[#001a39] group-hover:text-[#1CB08F] group-hover:bg-[#1CB08F]/10 transition-colors">
-                  <Code2 className="w-5 h-5" />
+                <div className="w-12 h-12 rounded-xl bg-[#F1F5F9] flex items-center justify-center text-[#001a39] group-hover:text-[#1CB08F] group-hover:bg-[#1CB08F]/10 transition-colors">
+                  <Code2 className="w-6 h-6" />
                 </div>
-                <span className="text-[#1CB08F] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpRight className="w-4 h-4" />
+                <span className="p-2 rounded-full hover:bg-[#F1F5F9] text-[#1CB08F] flex items-center gap-1 text-xs font-bold transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  Learn More <ArrowUpRight className="w-4 h-4" />
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                Custom Enterprise Software
+              <h3 className="text-2xl font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
+                Custom Enterprise Software & POS
               </h3>
-              <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
-                Bespoke, offline-first applications and high-throughput enterprise systems built to eliminate operational bottlenecks.
+              <p className="text-sm text-[#44474e] leading-relaxed">
+                Bespoke offline-first applications, retail POS suites, and high-concurrency microservices engineered to eliminate operational bottlenecks.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-mono text-[#001a39]/60">
-              <span>Next.js • React • Node</span>
-              <span className="text-[#1CB08F] font-bold">POS Ready</span>
+
+            {/* Software Dashboard Screenshot */}
+            <div className="z-10 mt-6 pt-4 border-t border-[#F1F5F9]">
+              <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden border border-[#F1F5F9] shadow-md group-hover:border-[#1CB08F]/40 transition-colors bg-[#001a39] flex items-center justify-center">
+                <Image
+                  src="/projects-images/col-tms-hero.png"
+                  alt="Custom Enterprise Software & Fleet ERP Dashboard"
+                  fill
+                  className="object-contain p-2 sm:p-3 group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between text-[11px] font-mono text-[#001a39]/70">
+                <span>Next.js • .NET • SQL Server</span>
+                <span className="text-[#1CB08F] font-bold">Offline-First POS</span>
+              </div>
             </div>
           </Link>
         </motion.div>
 
-        {/* 3. AI & Edge Computer Vision (Entire Card Clickable)
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Link
-            href="/services"
-            className="bento-card w-full h-full flex flex-col justify-between group p-6 sm:p-7 cursor-pointer block"
-          >
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-xl bg-[#F1F5F9] flex items-center justify-center text-[#001a39] group-hover:text-[#1CB08F] group-hover:bg-[#1CB08F]/10 transition-colors">
-                  <Cpu className="w-5 h-5" />
-                </div>
-                <span className="text-[#1CB08F] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </div>
-              <h3 className="text-lg font-bold text-[#001a39] group-hover:text-[#1CB08F] transition-colors">
-                AI & Edge Computer Vision
-              </h3>
-              <p className="text-xs sm:text-sm text-[#44474e] leading-relaxed">
-                On-premise neural inference for real-time license plate recognition (ANPR), security verification, and forecourt safety.
-              </p>
-            </div>
-            <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex items-center justify-between text-[11px] font-mono text-[#001a39]/60">
-              <span>ANPR & Safety Vision</span>
-              <span className="text-[#1CB08F] font-bold">YOLOv11-Edge</span>
-            </div>
-          </Link>
-        </motion.div> */}
+        {/* 3. AI & Edge Computer Vision (Preserved in comments)
+        <motion.div ...> ... </motion.div> */}
 
-        {/* 4. Scalable Retail POS Solutions (Entire Card Clickable) */}
+        {/* 4. Scalable Retail POS Solutions (Commented to hide as requested; consolidated into Custom Software):
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,6 +177,7 @@ export default function EnterpriseEcosystem() {
             </div>
           </Link>
         </motion.div>
+        */}
 
         {/* 5. Physical Infrastructure & Networking (Full Width Bento Card - Entire Card Clickable) */}
         <motion.div

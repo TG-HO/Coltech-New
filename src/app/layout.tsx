@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import { Toaster } from "sonner";
 
 const montserrat = Montserrat({
@@ -107,6 +108,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <FloatingWhatsApp />
         <Toaster position="bottom-right" richColors theme="light" />
       </body>
     </html>
